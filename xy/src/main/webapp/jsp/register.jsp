@@ -16,10 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
    	
-	<script type="text/javascript" src="/hcnm/easyui/jquery.min.js"></script>
-    <script type="text/javascript" src="/hcnm/easyui/jquery.easyui.min.js"></script>
-    <link rel="stylesheet" type="text/css" href=" /hcnm/easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="/hcnm/easyui/themes/icon.css">
+	<script type="text/javascript" src="/xy/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="/xy/easyui/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/icon.css">
 	<script type="text/javascript">
 
 		$(function(){

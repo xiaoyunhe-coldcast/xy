@@ -9,7 +9,7 @@
 	http://www.springframework.org/schema/context 
 	http://www.springframework.org/schema/context/spring-context-3.1.xsd 
 	http://www.springframework.org/schema/mvc 
-	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+	http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
 	<mvc:annotation-driven />
 
@@ -40,13 +40,7 @@
 			</bean>
 		</property>
 	</bean>
-	
-	    <!-- 静态资源加载
-	    <mvc: resources location="/xy/easyui/" mapping="/easyui/**" />
-	    <mvc: resources location="/xy/js/" mapping="/js/**" />
-	    <mvc: resources location="/xy/css/" mapping="/css/**" />
-	    <mvc: resources location="/xy/img" mapping="/img/**"  />
-    -->
+    
     
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean id="viewResolver"
@@ -60,9 +54,8 @@
 		<property name="viewClass">
 			<value>org.springframework.web.servlet.view.JstlView</value>
 		</property>
-
 	</bean>
-
+	
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding">
@@ -75,5 +68,8 @@
 			<value>4096</value>
 		</property>
 	</bean>
-
+	
+	
+	
+	
 </beans>
