@@ -1,0 +1,153 @@
+package xy.yangtzeu.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+
+/**
+ * 买家实体类
+ * @author 肖云鹤 
+ * 2016-03-25
+ */
+@Entity
+@Table(name="buyer")
+@NamedQueries(@NamedQuery(name="queryBuyerByName",query="from buyer b where b.buyername=?1"))
+public class Buyer implements Serializable{
+
+	private static final long serialVersionUID = 8214482970229216628L;
+	
+	/** 用户标示  **/
+	private Integer buyerid;
+	
+	/** 用户名  **/
+	private String buyername;
+	
+	/** 真实姓名  **/
+	private String realname;
+	
+	/** 用户密码  **/
+	private String buyerpsw;
+	
+	/** 用户邮箱  **/
+	private String email;
+	
+	/** 用户xingbie  **/
+	private String sex;
+	
+	/** 用户收货地址 **/
+	private String address;
+	
+	/** 用户联系方式 **/
+	private String telephone;
+	
+	private int buyerjf;
+	
+	/** 用户头像   **/
+	private String buyerpic;
+	
+	/** 备注信息  **/
+	private String bz;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	public Integer getBuyerid() {
+		return buyerid;
+	}
+
+	public void setBuyerid(Integer buyerid) {
+		this.buyerid = buyerid;
+	}
+
+	public String getBuyername() {
+		return buyername;
+	}
+
+	public void setBuyername(String buyername) {
+		this.buyername = buyername;
+	}
+
+	public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+
+	public String getBuyerpsw() {
+		return buyerpsw;
+	}
+
+	public void setBuyerpsw(String buyerpsw) {
+		this.buyerpsw = buyerpsw;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getTelephone() {
+		return telephone;
+	}
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
+	public String getBuyerpic() {
+		return buyerpic;
+	}
+
+	public void setBuyerpic(String buyerpic) {
+		this.buyerpic = buyerpic;
+	}
+
+	public String getBz() {
+		return bz;
+	}
+
+	public void setBz(String bz) {
+		this.bz = bz;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public int getBuyerjf() {
+		return buyerjf;
+	}
+
+	public void setBuyerjf(int buyerjf) {
+		this.buyerjf = buyerjf;
+	}
+
+	@Override
+	public String toString() {
+		return "Buyer [buyerid=" + buyerid + ", buyername=" + buyername + ", realname=" + realname + ", buyerpsw="
+				+ buyerpsw + ", email=" + email + ", address=" + address + ", telephone=" + telephone + ", buyerpic="
+				+ buyerpic + ", bz=" + bz + "]";
+	}
+}

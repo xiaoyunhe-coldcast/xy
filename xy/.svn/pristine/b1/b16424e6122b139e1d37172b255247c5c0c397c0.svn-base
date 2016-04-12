@@ -1,0 +1,31 @@
+package xy.yangtzeu.repository;
+
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import xy.yangtzeu.model.Buyer;
+
+/**
+ * 用户工厂类
+ * @author 肖云鹤
+ * 2016-03-25
+ */
+@Repository("buyerRepository")
+public class BuyerRepository extends AbstractEnyityRepository<Buyer, Integer> {
+
+	@Override
+	protected Class<Buyer> getEntityClazz() {
+		return Buyer.class;
+	}
+	
+	/**
+	 * 根据姓名预定义查询买家
+	 * @param name
+	 * @return
+	 */
+	public Buyer queryByName(String name){
+		List<Buyer> list = this.query("queryBuyerByName", name);
+		return list.size() > 0 ?list.get(0) : null;
+	}
+}

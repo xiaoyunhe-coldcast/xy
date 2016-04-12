@@ -1,0 +1,53 @@
+body{
+	width:100%;
+	margin: 0;
+	float: left;
+}
+#content{
+	float: left;
+	height:500px;
+	width:100%;
+	background:#8000ff;
+}
+
+#west{
+	float: left;
+	height:100%;
+	width:25%;
+	background:#8000ff;
+}
+#east{
+	float: left;
+	height:100%;
+	width:960px;
+	background:#8000ff;
+}
+#sorth{
+	float: left;
+	height:100px;
+	width:100%;
+	background:#B3DFDA;
+	padding:10px
+}
+#north{
+	float: left;
+	width:100%;
+	height:130px;
+	background:#ffff80;
+	padding:10px
+}
+#product1,#product2{
+	float: left;
+	width:100%;
+	height:300px;
+	background:#00ff00;
+}
+
+.ss{
+	color: #00ff00;
+	font-size: 12pt;
+	list-style-type:none;
+}
+.tabs1{
+	
+}

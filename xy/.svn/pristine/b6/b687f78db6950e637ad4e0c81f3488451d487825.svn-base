@@ -1,0 +1,75 @@
+package xy.yangtzeu.controller;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import xy.yangtzeu.model.Buyer;
+import xy.yangtzeu.repository.BuyerRepository;
+import xy.yangtzeu.service.BuyerService;
+
+/**
+ * 买家 控制层
+ * @author 肖云鹤
+ * 2016-03-25
+ */
+@Controller
+@RequestMapping("/buyer")
+public class BuyerController {
+	
+	@Resource(name="buyerRepository")
+	private BuyerRepository BR;
+	
+	@Resource(name="buyerService")
+	private BuyerService BS;
+	
+	/**
+	 * 根据主键 id 查询买家
+	 * @param request
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping("/query/{id}")
+	public ModelAndView queryBuyer(HttpServletRequest request,@PathVariable Integer id){
+		ModelAndView mav = new ModelAndView("/myspace");
+		String msg = "";
+		Buyer bean = null;
+		
+		try {
+			bean = BR.get(id);
+		} catch(Exception e){
+			msg = "操作失败"+ e.getMessage();
+		}
+		mav.addObject("buyer", bean);
+		mav.addObject("msg", msg);
+		return mav;
+	}
+	
+	/**
+	 *  买家注册
+	 * @param bean
+	 * @return
+	 */
+	@RequestMapping("/save")
+	@ResponseBody
+	public String  SaveBuyer(Buyer bean){
+		String msg = "";
+		try {
+		    BS.save(bean);
+		    msg = "注册成功" ;
+		} catch (Exception  e){
+			msg = "注册失败"+e.getMessage();
+		}
+		return msg;
+	}
+	
+	
+
+}
