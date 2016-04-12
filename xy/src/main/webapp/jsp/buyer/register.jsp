@@ -1,4 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html;charset=utf-8"
+    pageEncoding="utf-8"%>
+<html lang="zh">
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -23,9 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
 
 		$(function(){
-			function loadimage(){
-document.getElementById("randImage").src="/hcnm/view_other/number.jsp?"+Math.random();
-} 
 		$.extend($.fn.validatebox.defaults.rules, {    
     		username: {    
         		validator: function(value){
@@ -74,7 +73,6 @@ document.getElementById("randImage").src="/hcnm/view_other/number.jsp?"+Math.ran
 		
 		$('#register').panel({
 		  title:'新增用户',
-		 
 		  collapsible:true,
 		  width:400,
 		  maximizable:true,
@@ -123,15 +121,22 @@ document.getElementById("randImage").src="/hcnm/view_other/number.jsp?"+Math.ran
 		$('#btn').click(function(){
 			if($('#form1').form('validate')) {
 				$.ajax({
-					url:"SaveServlet",
+					url:"/xy/buyer/save",
 					type:"post",
 					data:$("#form1").serialize(),
-					dataType:'text',
-					success: function(data){
-						alert(data);
+					dataType:'json',
+					success: function(result){
+						alert(result.msg+"11");
+						$.messager.show({
+							title:'注册消息',
+							msg:msg,
+							timeout:5000,
+							showType:'slide'
+						});
+						
 					},
-					error:function(){
-						alert('no');
+					error:function(result){
+						alert(result.msg);
 					}
 					
 				});
@@ -152,51 +157,72 @@ document.getElementById("randImage").src="/hcnm/view_other/number.jsp?"+Math.ran
   </head>
   
   <body >
-  <div style="position: absolute;left: 400px;top: 100px;width:600px;height:500px;background-color: green;">
+  <div style="position: absolute;left: 400px;top: 100px;width:600px;height:500px;">
      <div id="register" >
 <form id="form1" action="#" method="post" >
 	<table>
     	<tr>
-        	<td >用户名：</td>
-            <td><input type="text" name="username" id="username"/></td>
+        	<td><b>用户名：</b></td>
+            <td><input type="text" name="buyername" id="username"/></td>
         </tr>
+         <br/>
     	<tr>
-        	<td>昵称：</td>
+        	<td><b>真实姓名：</b></td>
             <td>
-            	<input name="User.nickname" id="nickname" />
+            	<input name="realname" id="nickname" />
             </td>
+        </tr>
+        <tr>
+        	<td><b>性&nbsp;&nbsp;&nbsp;&nbsp;别：</b></td>
+            <td>
+            	<input type="radio" name="sex" id="sex" value="男" />男
+            	<input type="radio" name="sex" id="sex" value="女" />女
+            	<input type="radio" name="sex" id="sex" value="unknown" checked />保密
+           </td>
         </tr>		
     	<tr>
-        	<td>密码：</td>
-            <td><input type="password" name="password" id="password" value="" /></td>
+        	<td><b>密码：</b></td>
+            <td><input type="password" name="buyerpsw" id="password" value="" /></td>
         </tr>
     	<tr>
-        	<td>确认密码：</td>
+        	<td><b>确认密码：</b></td>
             <td><input type="password" name="cpassword" id="cpassword" value="" /></td>
         </tr>		
     	<tr>
-        	<td>手机号：</td>
-            <td><input id="tel" type="text" name="tel" /></td>
+        	<td><b>手机号：</b></td>
+            <td><input id="tel" type="text" name="telephone" /></td>
         </tr>
+        <br/>
     	<tr>
-        	<td>邮箱：</td>
-            <td><input type="text" name="User.mail"  id="mail" /></td>
+        	<td><b>邮箱：</b></td>
+            <td><input type="text" name="email"  id="mail" /></td>
         </tr>
-      <tr>
-        	<td>验证码：</td>
-            <td><img name="randImage" id="randImage" onclick="loadimage();" src="/hcnm/view_other/number.jsp">
-            <input class="easyui-textbox" data-options="width:100" name="code"  />
-            <a href="javascript:loadimage();"><font class=pt95>看不清点我</font></a>
-            </td>
+        <tr>
+        	<td><b>地址:</b></td>
+        	<td><input type="text" name="address"  id="address" value="武汉"/></td>
+        </tr>
+        <tr>
+        	<td><b>备注</b></td>
+        	<td>
+        		<textarea rows="3" cols="25" name="bz">
+        		  123
+        		</textarea>
+        	</td>
+        </tr>
+         <tr>
+        	<td>
+        		<input type="hidden" name="status" value="0"> 
+        		<input type="hidden" name="buyerjf" value="200"> 
+        		<input type="hidden" name="" value=""> 
+        	</td>
         </tr>
     	<tr align="center" >
-        	<td colspan="2" ><a class="easyui-linkbutton" type="reset" >重置</a>
+        	<td colspan="2" ><a class="easyui-linkbutton" type="reset">重置</a>
         	<a class="easyui-linkbutton" id="btn">保存</a></td>
         </tr>
     </table>
 </form>
 </div>
   </div>
-  
   </body>
 </html>

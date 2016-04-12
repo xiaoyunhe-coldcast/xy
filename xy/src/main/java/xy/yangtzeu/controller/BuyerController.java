@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import groovy.json.JsonBuilder;
 import xy.yangtzeu.model.Buyer;
+import xy.yangtzeu.model.Result;
 import xy.yangtzeu.repository.BuyerRepository;
 import xy.yangtzeu.service.BuyerService;
 
@@ -41,15 +39,15 @@ public class BuyerController {
 	 */
 	@RequestMapping("/save")
 	@ResponseBody
-	public String  SaveBuyer(Buyer bean){
-		String msg = "";
+	public Result  SaveBuyer(Buyer bean){
+		Result result = null;
 		try {
 		    BS.save(bean);
-		    msg = "注册成功" ;
+		   result = Result.successResult("注册成功");
 		} catch (Exception  e){
-			msg = "注册失败"+e.getMessage();
+			result = Result.failureResult("注册失败"+e.getMessage());
 		}
-		return msg;
+		return result;
 	}
 	
 	/**
@@ -57,18 +55,18 @@ public class BuyerController {
 	 * @return 
 	 */
 	@RequestMapping("/login")
-	public ModelAndView login(String name , String password,HttpSession session){
-		ModelAndView mav = new ModelAndView("/myspace");
-		String msg = "";
+	@ResponseBody
+	public Result login(String name , String password,HttpSession session){
+		Result result = null;
 		Buyer bean = null;
 		try {
 			bean = BS.login(name, password);
+			result = Result.successResult("登录成功");
 		} catch(Exception e){
-			msg = "登录失败"+e.getMessage();
+			 result = Result.failureResult("登录失败"+e.getMessage());
 		}
 		session.setAttribute("buyer", bean);
-		mav.addObject("msg", msg);
-		return mav;
+		return result;
 	}
 	
 	/**

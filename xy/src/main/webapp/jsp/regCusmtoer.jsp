@@ -2,8 +2,6 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-String backURL = request.getHeader("Referer");
-pageContext.setAttribute("backURL", backURL);
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -101,7 +99,7 @@ pageContext.setAttribute("backURL", backURL);
     <table style="margin-top:20px; margin-left:120px;font-size:11pt;" border="0" cellpadding="6px">
     	<tr>
         	<td><b>用户名：</b></td>
-            <td><input type="text" name="username" id="username" />
+            <td><input type="text" name="buyername" id="username" />
             <a id="checkName">检查</a></td>
         </tr>
     	<tr>
@@ -139,13 +137,6 @@ pageContext.setAttribute("backURL", backURL);
         <tr>
         	<td><b>密码答案：</b></td>
             <td><input type="text" name="result" id="result" /></td>
-        </tr>
-        <tr>
-        	<td><b>验证码：</b></td>
-            <td>
-            	<input type="text" id="textCode" name="textCode" />
-            	<img id="code" src="logistics/cusmtoer/checkCode.jsp" alt="看不清换一张" onclick="this.src='logistics/cusmtoer/checkCode.jsp?'+new Date().getTime()" />
-            </td>
         </tr>
     	<tr>
             <td colspan="2">

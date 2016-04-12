@@ -46,8 +46,6 @@
 	    <url-pattern>*.gif</url-pattern>
 	</servlet-mapping>
 	
-	 
-	
 	<listener>
 		<description>spring监听器</description>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

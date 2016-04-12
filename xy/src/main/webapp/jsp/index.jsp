@@ -27,23 +27,7 @@ pageContext.setAttribute("basePath", basePath);
 		.ss a{text-decoration: none; color:#676767;}
 	</style>
 	<script type="text/javascript">
-		
-		$(function(){
-		
-			$("#logout").click(function(){
-				$.ajax({
-					url:'LogoutServlet?id=2',
-					type:'post',
-					dataType:'text',
-					success:function(data){
-						$.messager.alert('ok',"退出成功！",'info',function(){
-							window.location.href = "${basePath}";
-						});
-					}
-				});
-			});
-			
-		});
+	
 		
 	</script>
   </head>
