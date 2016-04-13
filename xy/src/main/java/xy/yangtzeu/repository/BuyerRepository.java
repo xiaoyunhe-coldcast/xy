@@ -1,16 +1,9 @@
 package xy.yangtzeu.repository;
-
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import xy.yangtzeu.model.Buyer;
 
 /**

@@ -18,10 +18,11 @@
     .topnav {  
         list-style: none;  
         margin: 0;  
+        top:0;
         background: #333;  
         font-size: 14px;  
         float: left;  
-        width: 96%; 
+        width: 100%; 
     }  
       
     .topnav li {  
@@ -35,7 +36,8 @@
         padding: 10px 5px;  
         display: block;  
         float: left;  
-        color: #ffff80;  
+        color: blue;  
+         font-size: 15pt;
     }  
     .subnav {  
         list-style: none;  
@@ -54,9 +56,11 @@
         clear: both;  
         white-space:nowrap;  
         width:100%;  
+        font-size: 15pt;
     }  
     .subnav li a{  
         float: left;  
+         font-size: 15pt;
     }  
 </style>  
 <script type="text/javascript">  
@@ -73,10 +77,7 @@
     });  
 </script> 
 <body>
-	<div style="width: 100%;height: 100px;background-color: red"> 
-	
-	</div>
-	<div style="width: 100%;height: 200px;">  
+	<div style="width: 100%;height: 200px; background-color: green;">  
 		<ul class="topnav">  
 		    <li style="width: 180px">
 		   		<c:if test="${empty buyer}">
@@ -107,7 +108,7 @@
 		            <li><a href="#">子菜单3</a></li>  
 		        </ul>  
 		    </li>  
-		    <li>  
+		    <li style="width: 120px">  
 		        <a href="#">菜单3</a>  
 		        <ul class="subnav">  
 		            <li><a href="#">子菜单1</a></li>  

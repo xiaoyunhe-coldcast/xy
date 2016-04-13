@@ -14,6 +14,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -26,6 +28,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="goods")
+@NamedQueries(@NamedQuery(name="queryGoodsBytype",query="from Goods b where b.type=?1"))
 public class Goods implements Serializable{
 	
 	private static final long serialVersionUID = 4837499902401177206L;
@@ -59,6 +62,9 @@ public class Goods implements Serializable{
 	
 	/** 库存  **/
 	private Storage storage;
+	
+	/** 类别  ***/
+	private Integer type;
 	
 	/** 商品评论  **/
 	private Set <Comment> comments = new HashSet<Comment>(0);
@@ -178,5 +184,13 @@ public class Goods implements Serializable{
 
 	public void setStorage(Storage storage) {
 		this.storage = storage;
+	}
+
+	public Integer getType() {
+		return type;
+	}
+
+	public void setType(Integer type) {
+		this.type = type;
 	}
 }

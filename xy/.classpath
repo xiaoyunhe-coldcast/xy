@@ -27,13 +27,20 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="lib" path="F:/jar/json/commons-beanutils-1.7.0.jar"/>
+	<classpathentry kind="lib" path="F:/jar/json/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="F:/jar/json/commons-httpclient-3.1.jar"/>
+	<classpathentry kind="lib" path="F:/jar/json/commons-lang-2.3.jar"/>
+	<classpathentry kind="lib" path="F:/jar/json/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="F:/jar/json/ezmorph-1.0.3.jar"/>
+	<classpathentry kind="lib" path="F:/jar/json/json-lib-2.2.3-jdk15.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

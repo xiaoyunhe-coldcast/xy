@@ -138,6 +138,7 @@ public class BuyerController {
 	 * @return
 	 */
 	@RequestMapping("/list")
+	@ResponseBody
 	public Object querAll(int pageIndex ,int pageSize ,String like){
 		List <Buyer> list = BS.getAll(pageIndex, pageSize, like);
 		
@@ -145,4 +146,5 @@ public class BuyerController {
 //		String data = "{\"total\":"+cs.getcount()+" , \"rows\":"+json+"}";
 		return null;
 	}
+	
 }
