@@ -59,7 +59,7 @@ public class Storage implements Serializable{
 		this.storageid = storageid;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "bossid")
 	public Boss getBoss() {
 		return this.boss;
@@ -105,7 +105,7 @@ public class Storage implements Serializable{
 		this.bz = bz;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "storage")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "storage")
 	public Set<Goods> getGoodset() {
 		return goodset;
 	}

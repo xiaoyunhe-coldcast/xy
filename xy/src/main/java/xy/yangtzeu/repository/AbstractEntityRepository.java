@@ -13,7 +13,7 @@ import org.springframework.util.Assert;
  * @param <T> 实体类型
  * @param <I> 主键类型
  */
-public abstract class AbstractEnyityRepository <T,I>{
+public abstract class AbstractEntityRepository <T,I>{
 
 	@PersistenceContext(unitName="jpaxy")
 	protected EntityManager em;
@@ -21,7 +21,7 @@ public abstract class AbstractEnyityRepository <T,I>{
 	/**
 	 * 构造函数
 	 */
-	public AbstractEnyityRepository() {
+	public AbstractEntityRepository() {
 		Class<T> clazz = getEntityClazz();
 	}
 	

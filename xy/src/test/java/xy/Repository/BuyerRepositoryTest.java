@@ -56,4 +56,9 @@ public class BuyerRepositoryTest {
 			System.out.println(b.get(i).toString()+i+"");
 		}
 	}
+	
+	@Test
+	public void test4(){
+		
+	}
 }

@@ -123,7 +123,7 @@ public class Boss implements Serializable{
 		this.bz = bz;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "boss")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "boss")
 	public Set<Storage> getStorages() {
 		return this.storages;
 	}
@@ -132,7 +132,7 @@ public class Boss implements Serializable{
 		this.storages = storages;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "boss")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "boss")
 	public Set<Orders> getOrderses() {
 		return this.orderses;
 	}
@@ -141,7 +141,7 @@ public class Boss implements Serializable{
 		this.orderses = orderses;
 	}
 	
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "boss")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "boss")
 	public Set<Goods> getGoodss() {
 		return goodss;
 	}

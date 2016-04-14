@@ -84,7 +84,7 @@ public class Goods implements Serializable{
 		this.goodsid = goodsid;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "bossid")
 	public Boss getBoss() {
 		return this.boss;
@@ -158,7 +158,7 @@ public class Goods implements Serializable{
 		this.bz = bz;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "goods")
 	public Set<Orders> getOrderses() {
 		return this.orderses;
 	}
@@ -167,7 +167,7 @@ public class Goods implements Serializable{
 		this.orderses = orderses;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "goods")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "goods")
 	public Set<Comment> getComments() {
 		return this.comments;
 	}
@@ -176,7 +176,7 @@ public class Goods implements Serializable{
 		this.comments = comments;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "storageid")
 	public Storage getStorage() {
 		return storage;

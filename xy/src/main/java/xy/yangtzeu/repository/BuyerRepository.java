@@ -12,7 +12,7 @@ import xy.yangtzeu.model.Buyer;
  * 2016-03-25
  */
 @Repository("buyerRepository")
-public class BuyerRepository extends AbstractEnyityRepository<Buyer, Integer> {
+public class BuyerRepository extends AbstractEntityRepository<Buyer, Integer> {
 
 	@Override
 	protected Class<Buyer> getEntityClazz() {

@@ -180,7 +180,7 @@ public class Buyer implements Serializable{
 		this.bz = bz;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "buyer")
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "buyer")
 	public Set<Orders> getOrderses() {
 		return this.orderses;
 	}
@@ -189,7 +189,7 @@ public class Buyer implements Serializable{
 		this.orderses = orderses;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "buyer")
+	@OneToMany(cascade = CascadeType.ALL,  mappedBy = "buyer")
 	public Set<Comment> getComments() {
 		return this.comments;
 	}

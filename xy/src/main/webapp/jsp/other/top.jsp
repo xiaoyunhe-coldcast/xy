@@ -65,6 +65,12 @@
 </style>  
 <script type="text/javascript">  
     $(function(){  
+    	var myDate = new Date();
+    	myDate.toLocaleDateString();     //获取当前日期
+    	var mytime=myDate.toLocaleTimeString();     //获取当前时间
+    	var time= myDate.toLocaleString( );        //获取日期与时间
+    	$('#time').text(time);
+    	
         $('.topnav li a').hover(function(){  
             var topnavLi = $(this).parent();  
             var subnavUl = topnavLi.find('.subnav');  
@@ -79,13 +85,13 @@
 <body>
 	<div style="width: 100%;height: 200px; background-color: green;">  
 		<ul class="topnav">  
-		    <li style="width: 180px">
+		    <li style="width: 250px">
 		   		<c:if test="${empty buyer}">
 		   			<a href="/xy/jsp/buyer/buyerlogin.jsp" style="color: yellow;" >登录</a>
 		   			<a href="#" style="color: yellow;">注册</a>
 		   		</c:if>
 		   		<c:if test="${!empty buyer}">
-		   			<a href="#" style="color: yellow;">欢迎你，${buyer.buyername}</a>
+		   			<a href="/xy/buyer/query/${buyer.buyerid }" style="color: yellow;">欢迎你，${buyer.buyername}</a>
 		   			<a href="/xy/buyer/logout" style="color: yellow;">注销</a>
 		   		</c:if>
 		    </li>
@@ -116,6 +122,9 @@
 		            <li><a href="#">子菜单3</a></li>  
 		        </ul>  
 		    </li>  
+		    <li style="float: right">
+		    	<a id="time"></a>
+		    </li>
 		</ul>  
 	</div>
 </body>

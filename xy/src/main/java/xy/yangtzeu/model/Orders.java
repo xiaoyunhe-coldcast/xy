@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -22,6 +24,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="orders")
+@NamedQueries(@NamedQuery(name="queryBybuyerid",query="from Orders b where b.buyer.buyerid=?1"))
 public class Orders implements Serializable{
 
 	private static final long serialVersionUID = -1788230570855026531L;
@@ -64,7 +67,7 @@ public class Orders implements Serializable{
 		this.orderid = orderid;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "goodsid")
 	public Goods getGoods() {
 		return this.goods;
@@ -74,7 +77,7 @@ public class Orders implements Serializable{
 		this.goods = goods;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "bossid")
 	public Boss getBoss() {
 		return this.boss;
@@ -84,7 +87,7 @@ public class Orders implements Serializable{
 		this.boss = boss;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "buyerid")
 	public Buyer getBuyer() {
 		return this.buyer;

@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import xy.yangtzeu.model.Buyer;
+import xy.yangtzeu.model.Goods;
+import xy.yangtzeu.model.Orders;
 import xy.yangtzeu.model.Result;
 import xy.yangtzeu.repository.BuyerRepository;
+import xy.yangtzeu.repository.GoodsRepository;
+import xy.yangtzeu.repository.OrdersRepository;
 import xy.yangtzeu.service.BuyerService;
 
 /**
@@ -31,6 +35,15 @@ public class BuyerController {
 	
 	@Resource(name="buyerService")
 	private BuyerService BS;
+	
+	@Resource(name="goodsRepository")
+	private GoodsRepository GR;
+	
+	@Resource(name="ordersRepository")
+	private OrdersRepository OR;
+	
+	
+	
 	
 	/**
 	 *  买家注册
@@ -74,7 +87,7 @@ public class BuyerController {
 	 */
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession session){
-		ModelAndView mav = new ModelAndView("/");
+		ModelAndView mav = new ModelAndView("/other/index");
 		session.removeAttribute("buyer");
 		return mav ;
 	}
@@ -112,23 +125,28 @@ public class BuyerController {
 	}
 	
 	/**
-	 * 根据主键 id 查询买家
+	 * 根据主键 id 查询买家 订单，购买的商品，评论历史
 	 * @param request
 	 * @param id
 	 * @return
 	 */
 	@RequestMapping("/query/{id}")
 	public ModelAndView queryBuyer(HttpServletRequest request,@PathVariable Integer id){
-		ModelAndView mav = new ModelAndView("/myspace");
+		ModelAndView mav = new ModelAndView("/buyer/myspace");
 		String msg = "";
 		Buyer bean = null;
-		
+		List <Goods> goodslist = null;
+		List <Orders> orderslist = null;
 		try {
 			bean = BR.get(id);
-		} catch(Exception e){
+			//goodslist =	GR.queryBybuyerid(id);
+			orderslist = OR.queryBybuyerid(id);
+			} catch(Exception e){
 			msg = "操作失败"+ e.getMessage();
 		}
 		mav.addObject("buyer", bean);
+	//	mav.addObject("goodslist", goodslist);
+		mav.addObject("orderslist", orderslist);
 		mav.addObject("msg", msg);
 		return mav;
 	}

@@ -15,7 +15,7 @@ import xy.yangtzeu.model.Goods;
  * 2016年4月13日
  */
 @Repository("goodsRepository")
-public class GoodsRepository extends AbstractEnyityRepository<Goods, Long>{
+public class GoodsRepository extends AbstractEntityRepository<Goods, Long>{
 
 	@Override
 	protected Class<Goods> getEntityClazz() {
@@ -52,5 +52,16 @@ public class GoodsRepository extends AbstractEnyityRepository<Goods, Long>{
 		.setMaxResults(pageSize)
 		.getResultList();
 		return list;
+	}
+	
+	/**
+	 * 根据商品类别预定义查询商品
+	 * @param name
+	 * @return
+	 */
+	@Transactional
+	public List<Goods> queryBybuyerid(Integer buyerid){
+		List<Goods> list = this.query("queryBybuyerid", buyerid);
+		return list.size() > 0 ?list : null;
 	}
 }

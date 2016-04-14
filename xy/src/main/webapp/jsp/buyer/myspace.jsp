@@ -60,10 +60,49 @@
 				</table>
 			</div>
 			<div title="我的购物车">
+				<table>
+					<tr>
+						<td colspan="2" style="background-color: yellow;" align="center"><b>我的订单</b></td>
+					</tr>
+					<c:if test="${empty orderslist }">
+						<tr>
+							<td><a href="#">暂时没有订单</a></td>
+							<td><a href="#">点击去购物</a></td>
+						</tr>
+					</c:if>
+					<c:forEach items="${orderslist}" var="o" begin="1" end="4" >
+						<tr>
+							<td>商品名称</td>
+							<td>${o.goods.name}</td>
+						<tr>
+						<tr>
+							<td>总金额</td>
+							<td>${o.total}</td>
+						</tr>
+						<tr>
+							<td>订单状态</td>
+							<c:if test="${o.status==1 }">
+								<td><a href="#">未下单</a></td>
+							</c:if>
+							<c:if test="${o.status==2 }">
+								<td><a href="#">已下单</a></td>
+							</c:if>
+							<c:if test="${o.status==3 }">
+								<td><a href="#">待收货</a></td>
+							</c:if>
+						</tr>
+						<tr height="10px">
+							<td>----------------------</td>
+						</tr>
+				</c:forEach>
+				<tr>
+					<td colspan="2" align="center"><a href="#">查看所有订单</a></td>
+				</tr>
+				</table>
 				
 			</div>
 			<div title="购买历史">
-			
+				
 			</div>
 			<div title="评论过的商品">
 			
