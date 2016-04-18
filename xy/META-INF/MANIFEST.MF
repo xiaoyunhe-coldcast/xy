@@ -10,3 +10,4 @@ Export-Package: xy.Repository,
  xy.yangtzeu.repository,
  xy.yangtzeu.service,
  xy.yangtzeu.util
+Import-Package: com.google.gson

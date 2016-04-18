@@ -24,7 +24,8 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="orders")
-@NamedQueries(@NamedQuery(name="queryBybuyerid",query="from Orders b where b.buyer.buyerid=?1"))
+@NamedQueries({@NamedQuery(name="queryBybuyerid",query="from Orders b where b.buyer.buyerid=?1"),
+@NamedQuery(name="querygoodbuyerid",query="from Orders b where b.buyer.buyerid=? and b.status>3")})
 public class Orders implements Serializable{
 
 	private static final long serialVersionUID = -1788230570855026531L;
@@ -67,7 +68,7 @@ public class Orders implements Serializable{
 		this.orderid = orderid;
 	}
 
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "goodsid")
 	public Goods getGoods() {
 		return this.goods;
@@ -142,4 +143,11 @@ public class Orders implements Serializable{
 	public void setBz(String bz) {
 		this.bz = bz;
 	}
+
+	@Override
+	public String toString() {
+		return "Orders [orderid=" + orderid + ", buyer=" + buyer.toString() + ", goods=" + goods.toString() + ", boss=" + boss.toString() + ", status="
+				+ status + ", date=" + date + ", total=" + total + ", num=" + num + ", bz=" + bz + "]";
+	}
+	
 }

@@ -1,5 +1,7 @@
 package xy.yangtzeu.repository;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import xy.yangtzeu.model.Orders;
@@ -11,12 +13,15 @@ import xy.yangtzeu.model.Orders;
  * 2016年4月13日
  */
 @Repository("ordersRepository")
-public class OrdersRepository extends AbstractEntityRepository<Orders, Long> {
+public class OrdersRepository extends AbstractEntityRepository<Orders, Integer> {
 
 	@Override
 	protected Class<Orders> getEntityClazz() {
 		return Orders.class;
 	}
+	
+	@PersistenceContext(unitName="jpaxy")
+	protected EntityManager em;
 	
 	/**
 	 * 根据买家主键查询买家的订单
@@ -28,4 +33,27 @@ public class OrdersRepository extends AbstractEntityRepository<Orders, Long> {
 		List<Orders> list = this.query("queryBybuyerid", buyerid);
 		return list.size() > 0 ?list : null;
 	}
+	
+	/**
+	 * 根据买家查购买的商品
+	 * @param name
+	 * @return
+	 */
+	@Transactional
+	public List<Orders> querygoodBybuyerid(Integer buyerid){
+		List<Orders> list = this.query("querygoodbuyerid", buyerid);
+		return list.size() > 0 ?list : null;
+	}
+	
+	@Transactional
+	public List<Orders> query(int page ,int rows){
+		return null;
+	}
+	
+	@Transactional
+	public void updatestatus(int ordersid){
+		String hql = "update Orders o set o.status = o.status+1";
+		em.createQuery(hql);
+	}
+	
 }

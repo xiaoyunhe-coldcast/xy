@@ -90,22 +90,93 @@
 							<c:if test="${o.status==3 }">
 								<td><a href="#">待收货</a></td>
 							</c:if>
+							<c:if test="${o.status >= 3}">
+								<td><a href="#">货已到</a></td>
+							</c:if>
+						</tr>
+						<tr>
+							<td>下单时间</td>
+							<td>${o.date }</td>
 						</tr>
 						<tr height="10px">
 							<td>----------------------</td>
 						</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="2" align="center"><a href="#">查看所有订单</a></td>
+					<td colspan="2" align="center"><a href="#" target="main-center">查看所有订单</a></td>
 				</tr>
 				</table>
-				
 			</div>
 			<div title="购买历史">
-				
+				<table>
+					<tr>
+						<td colspan="2" style="background-color: yellow;" align="center"><b>我的购买记录</b></td>
+					</tr>
+					<c:if test="${empty goodslist }">
+						<tr>
+							<td><a href="#">没有购买过</a></td>
+							<td><a href="#">点击去购物</a></td>
+						</tr>
+					</c:if>
+					<c:forEach items="${goodslist}" var="good" begin="1" end="4" >
+						<tr>
+							<td>商品名称</td>
+							<td>${good.goods.name}</td>
+						<tr>
+						<tr>
+							<td>商品价格</td>
+							<td>${good.goods.price}</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<a href="/xy/goods/query/${good.goods.goodsid}" target="main-center">商品详细</a>
+							</td>
+						</tr>
+						<tr height="10px">
+							<td>----------------------</td>
+						</tr>
+				</c:forEach>
+				<tr>
+					<td colspan="2" align="center"><a href="/xy/jsp/goods/goodslist.jsp" target="main-center">查看所有商品</a></td>
+				</tr>
+				</table>
 			</div>
-			<div title="评论过的商品">
-			
+			<div title="评论过的商品" >
+				<table>
+					<tr>
+						<td colspan="2" style="background-color: yellow;" align="center"><b>我的评论</b></td>
+					</tr>
+					<c:if test="${empty comlist }">
+						<tr>
+							<td><a href="#">没有评论过商品</a></td>
+							<td><a href="#">点击去购物评论</a></td>
+						</tr>
+					</c:if>
+					<c:forEach items="${comlist}" var="com" begin="1" end="4" >
+						<tr>
+							<td>商品名称</td>
+							<td>${com.goods.name}</td>
+						<tr>
+						<tr>
+							<td>评论内容</td>
+							<td>${com.content}</td>
+						</tr>
+						<tr>
+							<td>
+								<a href="${com.comid}" target="">评论详细</a>
+							</td>
+							<td >
+								<a href="${com.goods.goodsid}" target="">商品详细</a>
+							</td>
+						</tr>
+						<tr height="10px">
+							<td>----------------------</td>
+						</tr>
+				</c:forEach>
+				<tr>
+					<td colspan="2" align="center"><a href="#" target="">查看所有商品评论</a></td>
+				</tr>
+				</table>
 			</div>
 			<div title="我的账户">
 			

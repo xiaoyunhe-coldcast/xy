@@ -3,13 +3,15 @@ package xy.yangtzeu.model;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
@@ -19,6 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="comment")
+@NamedQueries({@NamedQuery(name="combuyer",query="from Comment c where c.buyer.buyerid=?1")})
 public class Comment implements Serializable{
 
 	private static final long serialVersionUID = -3805063298444545448L;
@@ -27,7 +30,7 @@ public class Comment implements Serializable{
 	private Integer comid;
 	
 	/** 评论人  **/
-	private Buyer Buyer;
+	private Buyer buyer;
 	
 	/** 评论对象  **/
 	private Goods goods;
@@ -55,15 +58,17 @@ public class Comment implements Serializable{
 	}
 	      
 	@JoinColumn(name="buyerid")  
+	@ManyToOne
 	public Buyer getBuyer() {
-		return Buyer;
+		return buyer;
 	}
 
 	public void setBuyer(Buyer buyer) {
-		Buyer = buyer;
+		this.buyer = buyer;
 	}
 	     
 	@JoinColumn(name="goodsid") 
+	@ManyToOne
 	public Goods getGoods() {
 		return goods;
 	}
@@ -71,7 +76,7 @@ public class Comment implements Serializable{
 	public void setGoods(Goods goods) {
 		this.goods = goods;
 	}
-
+	
 	public String getContent() {
 		return content;
 	}
@@ -103,4 +108,12 @@ public class Comment implements Serializable{
 	public void setBz(String bz) {
 		this.bz = bz;
 	}
+
+	@Override
+	public String toString() {
+		return "Comment [comid=" + comid + ", buyer=" + buyer.toString() + ", goods=" + goods.toString() + ", content=" + content + ", date="
+				+ date + ", score=" + score + ", bz=" + bz + "]";
+	}
+	
+	
 }

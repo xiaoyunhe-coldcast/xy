@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import xy.yangtzeu.model.Boss;
 
 @Repository("bossRepository")
-public class BossRepository extends AbstractEntityRepository<Boss, Long>{
+public class BossRepository extends AbstractEntityRepository<Boss, Integer>{
 
 	@Override
 	protected Class<Boss> getEntityClazz() {

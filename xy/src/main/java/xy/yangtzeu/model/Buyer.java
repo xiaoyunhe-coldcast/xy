@@ -61,13 +61,16 @@ public class Buyer implements Serializable{
 	private String bz;
 	
 	/** 状态信息  **/
-	private  int status;
+	private  Integer status;
 	
-	/** 订单 **/
-	private Set <Orders> orderses = new HashSet<Orders>(0);
+	/** 账户余额 **/
+	private Double money; 
 	
-	/** 评论  **/
-	private Set <Comment> comments =  new HashSet<Comment>(0);
+//	/** 订单 **/
+//	private Set <Orders> orderses = new HashSet<Orders>(0);
+//	
+//	/** 评论  **/
+//	private Set <Comment> comments =  new HashSet<Comment>(0);
 	
 
 	@Id
@@ -180,21 +183,43 @@ public class Buyer implements Serializable{
 		this.bz = bz;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "buyer")
-	public Set<Orders> getOrderses() {
-		return this.orderses;
+//	@OneToMany(cascade = CascadeType.MERGE, mappedBy = "buyer")
+//	public Set<Orders> getOrderses() {
+//		return this.orderses;
+//	}
+//
+//	public void setOrderses(Set<Orders> orderses) {
+//		this.orderses = orderses;
+//	}
+//
+//	@OneToMany(cascade = CascadeType.MERGE,  mappedBy = "buyer")
+//	public Set<Comment> getComments() {
+//		return this.comments;
+//	}
+//
+//	public void setComments(Set<Comment> comments) {
+//		this.comments = comments;
+//	}
+	
+	@Column(name = "money")
+	public Double getMoney() {
+		return money;
 	}
 
-	public void setOrderses(Set<Orders> orderses) {
-		this.orderses = orderses;
+	public void setMoney(Double money) {
+		this.money = money;
+	}
+	
+	public void setBuyerjf(int buyerjf) {
+		this.buyerjf = buyerjf;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL,  mappedBy = "buyer")
-	public Set<Comment> getComments() {
-		return this.comments;
+	@Override
+	public String toString() {
+		return "Buyer [buyerid=" + buyerid + ", buyername=" + buyername + ", realname=" + realname + ", buyerpsw="
+				+ buyerpsw + ", email=" + email + ", sex=" + sex + ", address=" + address + ", telephone=" + telephone
+				+ ", buyerjf=" + buyerjf + ", buyerpic=" + buyerpic + ", bz=" + bz + ", status=" + status + ", money="
+				+ money + "]";
 	}
-
-	public void setComments(Set<Comment> comments) {
-		this.comments = comments;
-	}
+	
 }

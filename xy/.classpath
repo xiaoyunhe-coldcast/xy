@@ -42,5 +42,6 @@
 	<classpathentry kind="lib" path="F:/jar/json/commons-logging-1.1.1.jar"/>
 	<classpathentry kind="lib" path="F:/jar/json/ezmorph-1.0.3.jar"/>
 	<classpathentry kind="lib" path="F:/jar/json/json-lib-2.2.3-jdk15.jar"/>
+	<classpathentry kind="lib" path="F:/jar/json/gson-2.2.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

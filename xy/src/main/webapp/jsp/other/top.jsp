@@ -96,7 +96,7 @@
 		   		</c:if>
 		    </li>
 		     <li style="width: 120px">  
-		        <a href="#">主页</a>  
+		        <a href="/xy/jsp/other/index.jsp">主页</a>  
 		    </li>  
 		    <li style="width: 120px">  
 		        <a href="#">全部商品</a>  

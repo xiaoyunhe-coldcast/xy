@@ -31,7 +31,7 @@ public class Storage implements Serializable{
 	private Integer storageid;
 	
 	/** 卖家实体  **/
-	private Boss boss;
+	//private Boss boss;
 	
 	/** 进价  **/
 	private Double inprice;
@@ -45,12 +45,12 @@ public class Storage implements Serializable{
 	/** 备注  **/
 	private String bz;
 	
-	/** 商品实体  **/
-	private Set<Goods> goodset = new HashSet<Goods>(0);
+//	/** 商品实体  **/
+//	private Set<Goods> goodset = new HashSet<Goods>(0);
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "storageid", unique = true, nullable = false)
+	@Column(name = "storageid", nullable = false)
 	public Integer getStorageid() {
 		return this.storageid;
 	}
@@ -59,15 +59,15 @@ public class Storage implements Serializable{
 		this.storageid = storageid;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "bossid")
-	public Boss getBoss() {
-		return this.boss;
-	}
-
-	public void setBoss(Boss boss) {
-		this.boss = boss;
-	}
+//	@ManyToOne
+//	@JoinColumn(name = "bossid")
+//	public Boss getBoss() {
+//		return this.boss;
+//	}
+//
+//	public void setBoss(Boss boss) {
+//		this.boss = boss;
+//	}
 
 	@Column(name = "inprice", precision = 22, scale = 0)
 	public Double getInprice() {
@@ -104,13 +104,21 @@ public class Storage implements Serializable{
 	public void setBz(String bz) {
 		this.bz = bz;
 	}
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "storage")
-	public Set<Goods> getGoodset() {
-		return goodset;
-	}
 
-	public void setGoodset(Set<Goods> goodset) {
-		this.goodset = goodset;
+	@Override
+	public String toString() {
+		return "Storage [storageid=" + storageid + ", inprice=" + inprice + ", soldprice=" + soldprice + ", count="
+				+ count + ", bz=" + bz + "]";
 	}
+	
+//	@OneToMany(cascade = CascadeType.MERGE, mappedBy = "storage")
+//	public Set<Goods> getGoodset() {
+//		return goodset;
+//	}
+//
+//	public void setGoodset(Set<Goods> goodset) {
+//		this.goodset = goodset;
+//	}
+
+	
 }

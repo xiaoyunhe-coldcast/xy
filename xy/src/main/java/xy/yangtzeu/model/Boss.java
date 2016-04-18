@@ -49,13 +49,13 @@ public class Boss implements Serializable{
 	/** 备注 **/
 	private String bz;
 	
-	/** 订单 **/
-	private Set <Orders> orderses = new HashSet<Orders>(0);
-	/** 商品  **/
-	private Set <Goods> goodss = new HashSet<Goods>(0);
-	
-	/** 库存  **/
-	private Set <Storage> storages = new HashSet<Storage>(0);
+//	/** 订单 **/
+//	private Set <Orders> orderses = new HashSet<Orders>(0);
+//	/** 商品  **/
+//	private Set <Goods> goodss = new HashSet<Goods>(0);
+//	
+//	/** 库存  **/
+//	private Set <Storage> storages = new HashSet<Storage>(0);
 	
 	
 	@Id
@@ -123,30 +123,37 @@ public class Boss implements Serializable{
 		this.bz = bz;
 	}
 
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "boss")
-	public Set<Storage> getStorages() {
-		return this.storages;
+	@Override
+	public String toString() {
+		return "Boss [bossid=" + bossid + ", name=" + name + ", realname=" + realname + ", password=" + password
+				+ ", tel=" + tel + ", adresse=" + adresse + ", bz=" + bz + "]";
 	}
 
-	public void setStorages(Set<Storage> storages) {
-		this.storages = storages;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "boss")
-	public Set<Orders> getOrderses() {
-		return this.orderses;
-	}
-
-	public void setOrderses(Set<Orders> orderses) {
-		this.orderses = orderses;
-	}
+//	@OneToMany(cascade = CascadeType.MERGE, mappedBy = "boss")
+//	public Set<Storage> getStorages() {
+//		return this.storages;
+//	}
+//
+//	public void setStorages(Set<Storage> storages) {
+//		this.storages = storages;
+//	}
+//
+//	@OneToMany(cascade = CascadeType.MERGE, mappedBy = "boss")
+//	public Set<Orders> getOrderses() {
+//		return this.orderses;
+//	}
+//
+//	public void setOrderses(Set<Orders> orderses) {
+//		this.orderses = orderses;
+//	}
+//	
+//	@OneToMany(cascade = CascadeType.MERGE, mappedBy = "boss")
+//	public Set<Goods> getGoodss() {
+//		return goodss;
+//	}
+//
+//	public void setGoodss(Set<Goods> goodss) {
+//		this.goodss = goodss;
+//	}
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "boss")
-	public Set<Goods> getGoodss() {
-		return goodss;
-	}
-
-	public void setGoodss(Set<Goods> goodss) {
-		this.goodss = goodss;
-	}
 }

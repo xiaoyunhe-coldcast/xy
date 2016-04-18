@@ -69,8 +69,8 @@ public abstract class AbstractEntityRepository <T,I>{
 	 * 查询总记录数
 	 */
 	@Transactional	
-	public int count(){
-		int count = (Integer) em.createQuery("select count (t) from "+getEntityClazz().getSimpleName()+" t")
+	public Long count(){
+		Long count = (Long) em.createQuery("select count (t) from "+getEntityClazz().getSimpleName()+" t")
 		.getSingleResult();
 		return count;
 	}

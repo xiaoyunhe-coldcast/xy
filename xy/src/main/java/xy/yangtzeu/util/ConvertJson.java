@@ -1,47 +1,33 @@
 package xy.yangtzeu.util;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import org.junit.Test;
-
+import com.google.gson.Gson;
 import net.sf.json.JSONArray;
-import xy.Repository.model;
+import xy.yangtzeu.exception.BusinessException;
 
+/**
+ * 格式转化工具
+ *
+ * @author 肖云鹤
+ * 2016年4月17日
+ */
 public class ConvertJson{
-	
-	public String list2Json(List list){
+	public String list2Json(List<?> list){
+		if(list == null||list.size()<1){
+			throw new BusinessException("集合是空的额");
+		}
 		String data = JSONArray.fromObject(list).toString();
-		//String data = "{\"total\":"+cs.getcount()+" , \"rows\":"+json+"}";
-		return data;
+		return data ==null ? "":data;
 	}
 	
-	public String Map2Json(Map map){
+	public String Map2Json(Map<String, Object> map){
 		String data = JSONArray.fromObject(map).toString();
 		return data;
 	}
 	
-	@Test
-	public void test1(){
-		List carlist = new ArrayList<>();
-		model d = new model();
-		d.setMoney(22);
-		d.setName("11");
-		carlist.add(d);
-		String data = JSONArray.fromObject(carlist.get(0)).toString();
-		System.out.println(data);
-	}
-	
-	@Test
-	public void test2(){
-		Map<String, Object> a = new HashMap<String,Object>();
-		model d = new model();
-		d.setMoney(55);
-		d.setName("22");
-		a.put("2", d);
-		String data = JSONArray.fromObject(a.get("2")).toString();
-		System.out.println(data);
+	public String u(Object o){
+		Gson gson = new Gson(); //谷歌
+		String jsonStr = gson.toJson(o);
+		return jsonStr;
 	}
 }

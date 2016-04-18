@@ -1,9 +1,8 @@
 package xy.yangtzeu.repository;
+import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import xy.yangtzeu.model.Goods;
@@ -15,7 +14,7 @@ import xy.yangtzeu.model.Goods;
  * 2016年4月13日
  */
 @Repository("goodsRepository")
-public class GoodsRepository extends AbstractEntityRepository<Goods, Long>{
+public class GoodsRepository extends AbstractEntityRepository<Goods, Integer>{
 
 	@Override
 	protected Class<Goods> getEntityClazz() {
@@ -43,10 +42,12 @@ public class GoodsRepository extends AbstractEntityRepository<Goods, Long>{
 	 * @return
 	 */
 	@Transactional
-	public List<Goods> getAll(int pageIndex ,int pageSize ){
-		String hql = "from Goods ";
-		List<Goods> list = null;
-		
+	public List<Goods> getAll(int pageIndex ,int pageSize,String order){
+		if (order == ""||order == null){
+			order = "asc";
+		}
+		String hql = "from Goods g order by g.price "+order;
+		List<Goods> list = new ArrayList<>();
 		list = em.createQuery(hql,Goods.class)
 		.setFirstResult((pageIndex-1) * pageSize)
 		.setMaxResults(pageSize)
@@ -54,14 +55,4 @@ public class GoodsRepository extends AbstractEntityRepository<Goods, Long>{
 		return list;
 	}
 	
-	/**
-	 * 根据商品类别预定义查询商品
-	 * @param name
-	 * @return
-	 */
-	@Transactional
-	public List<Goods> queryBybuyerid(Integer buyerid){
-		List<Goods> list = this.query("queryBybuyerid", buyerid);
-		return list.size() > 0 ?list : null;
-	}
 }

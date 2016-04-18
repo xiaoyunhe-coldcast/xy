@@ -1,22 +1,20 @@
 package xy.yangtzeu.controller;
-
 import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
 import xy.yangtzeu.model.Buyer;
+import xy.yangtzeu.model.Comment;
 import xy.yangtzeu.model.Goods;
 import xy.yangtzeu.model.Orders;
 import xy.yangtzeu.model.Result;
 import xy.yangtzeu.repository.BuyerRepository;
+import xy.yangtzeu.repository.CommentRepository;
 import xy.yangtzeu.repository.GoodsRepository;
 import xy.yangtzeu.repository.OrdersRepository;
 import xy.yangtzeu.service.BuyerService;
@@ -41,6 +39,9 @@ public class BuyerController {
 	
 	@Resource(name="ordersRepository")
 	private OrdersRepository OR;
+	
+	@Resource(name="commentRepository")
+	private CommentRepository CR;
 	
 	
 	
@@ -136,17 +137,23 @@ public class BuyerController {
 		String msg = "";
 		Buyer bean = null;
 		List <Goods> goodslist = null;
-		List <Orders> orderslist = null;
+		List <Orders> orderslist1 = null;
+		List <Orders> orderslist2 = null;
+		List <Comment> commentlist = null;
 		try {
 			bean = BR.get(id);
 			//goodslist =	GR.queryBybuyerid(id);
-			orderslist = OR.queryBybuyerid(id);
+			orderslist1 = OR.queryBybuyerid(id);
+			orderslist2 = OR.querygoodBybuyerid(id);
+			commentlist = CR.queryBuyer(id);
 			} catch(Exception e){
 			msg = "操作失败"+ e.getMessage();
 		}
 		mav.addObject("buyer", bean);
 	//	mav.addObject("goodslist", goodslist);
-		mav.addObject("orderslist", orderslist);
+		mav.addObject("orderslist", orderslist1);
+		mav.addObject("goodslist", orderslist2);
+		mav.addObject("comlist", commentlist);
 		mav.addObject("msg", msg);
 		return mav;
 	}
