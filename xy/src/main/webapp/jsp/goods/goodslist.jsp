@@ -27,7 +27,7 @@
 	
 	//
 	function formaterdetail(val){
-		return '<a href="/xy/good/query/{'+val+'}" >商品详细</a>';
+		return '<a href="/xy/goods/query/'+val+'?pageIndex=1&pagesize=20" target="_top">商品详细</a>';
 		}
 	
 	function formaterpic(val){
@@ -39,7 +39,7 @@
 			idField:'goodsid',
 			url:'/xy/goods/list',
 			title:'商品信息',
-			width:790,
+			width:950,
 			fitColumns:true,
 			rownumbers:true,
 			singleSelect:true,
@@ -121,8 +121,9 @@
 	</div>
 	<div id="goods" align="center">
 		<div id="tb">
-		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/a>
+		<!--  <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/a>
 		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"/a>
+		-->
 	</div>
 	</div>
 </body>

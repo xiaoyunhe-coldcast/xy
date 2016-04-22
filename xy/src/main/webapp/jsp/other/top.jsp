@@ -22,7 +22,7 @@
         background: #333;  
         font-size: 14px;  
         float: left;  
-        width: 100%; 
+        width: 97%; 
     }  
       
     .topnav li {  
@@ -36,7 +36,7 @@
         padding: 10px 5px;  
         display: block;  
         float: left;  
-        color: blue;  
+        color: yellow;  
          font-size: 15pt;
     }  
     .subnav {  
@@ -83,7 +83,12 @@
     });  
 </script> 
 <body>
-	<div style="width: 100%;height: 200px; background-color: green;">  
+	<div style="width: 100%" >
+		<marquee scrollAmount=2 width=100% behavior=alternate bgcolor="red" >
+		<p style="font-size: 12pt ">欢迎来到校园易购商城！ 欢迎来到校园易购商城！ 欢迎来到校园易购商城！</p>
+		</marquee>
+	</div>
+	<div style="width: 100%;height: 200px; background: url(/xy/img/other/banner.jpg)">  
 		<ul class="topnav">  
 		    <li style="width: 250px">
 		   		<c:if test="${empty buyer}">

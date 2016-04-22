@@ -16,7 +16,7 @@
 		$('#left').accordion({    
 		    animate:true,
 		    width:350,
-		    height:800,
+		    height:650,
 		});  
 	});
 
@@ -32,6 +32,11 @@
 				<table >
 					<tr>
 						<td colspan="2" style="background-color: yellow;" align="center"><b>我的个人信息</b></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<img alt="1" src="${buyer.buyerpic}" width="300px;" height="200px">
+						</td>
 					</tr>
 					<tr>
 						<td><b>姓名</b></td>
@@ -55,7 +60,7 @@
 					</tr>		
 					<tr>
 						<td colspan="2" align="center">
-							<a  class="easyui-linkbutton"  style="width: 100px;height: 50px;" target="main-center" href="#">编辑信息</a></td>
+							<a  class="easyui-linkbutton"  style="width: 100px;height: 30px;" target="main-center" href="#">编辑信息</a></td>
 					</tr>		
 				</table>
 			</div>
@@ -70,7 +75,7 @@
 							<td><a href="#">点击去购物</a></td>
 						</tr>
 					</c:if>
-					<c:forEach items="${orderslist}" var="o" begin="1" end="4" >
+					<c:forEach items="${orderslist}" var="o" begin="1" end="3" >
 						<tr>
 							<td>商品名称</td>
 							<td>${o.goods.name}</td>
@@ -98,8 +103,8 @@
 							<td>下单时间</td>
 							<td>${o.date }</td>
 						</tr>
-						<tr height="10px">
-							<td>----------------------</td>
+						<tr height="2px">
+							<td colspan="2">~~~~~~~~~~~~~~~~~~~~~~~~~~~</td>
 						</tr>
 				</c:forEach>
 				<tr>
@@ -129,7 +134,7 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-								<a href="/xy/goods/query/${good.goods.goodsid}" target="main-center">商品详细</a>
+								<a href="/xy/goods/query/${good.goods.goodsid}?pageIndex=1&pagesize=20" target="_top">商品详细</a>
 							</td>
 						</tr>
 						<tr height="10px">

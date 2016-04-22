@@ -11,21 +11,16 @@ import org.apache.axis2.client.Options;
 import org.apache.axis2.client.ServiceClient;
 import org.dom4j.DocumentException;
 
-/** 
- * 调用天气预报 
- */  
-public class Weather {  
-	
+
+public class phonews {
     public static void main(String[] args) throws DocumentException {  
-        Weather client = new Weather();  
-       String xml2 = client.testDocument("武汉");  
-       String weather [] =xml2.split("</string><string>");
-       for (int i = 0;i < weather.length-1;i++){
-    	   System.out.println(i+"~~~~~"+weather[i]);
-       }
+    	phonews client = new phonews();  
+       String xml2 = client.phone("18717164035");  
+       
+            System.out.println(xml2.substring(82,108));
    
     }  
-    public String  testDocument(String city) {  
+    public String  phone(String tel) {  
     	String xml = "";
         try {  
             ServiceClient sc = new ServiceClient();  
@@ -33,14 +28,14 @@ public class Weather {
             // 确定目标服务地址  
             // location  
             opts.setTo(new EndpointReference(  
-                    "http://ws.webxml.com.cn/WebServices/WeatherWS.asmx?wsdl"));  
+                    "http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl"));  
             // 确定调用方法  
             // 对应soapAction  
-            opts.setAction("http://ws.webxml.com.cn/WebServices/WeatherWS.asmx?wsdl");  
+            opts.setAction("http://ws.webxml.com.cn/WebServices/MobileCodeWS.asmx?wsdl");  
             opts.setSoapVersionURI(SOAP12Constants.SOAP_ENVELOPE_NAMESPACE_URI);  
             sc.setOptions(opts);  
             // 发送请求并并得到返回结果，注意参数生成方法的分析  
-            OMElement res = sc.sendReceive(createPayLoad(city));  
+            OMElement res = sc.sendReceive(createPayLoad(tel));  
             // 值得注意的是，返回结果就是一段由OMElement对象封装的xml字符串。  
             xml = res.toString();
             res.getFirstElement().getText();   
@@ -51,18 +46,18 @@ public class Weather {
        return xml;
     }  
   
-    public static OMElement createPayLoad(String city) {  
+    public static OMElement createPayLoad(String tel) {  
         OMFactory fac = OMAbstractFactory.getOMFactory();  
         // 指定命名空间  
         OMNamespace omNs = fac.createOMNamespace("http://WebXml.com.cn/", "");  
         // 指定方法  
-        OMElement method = fac.createOMElement("getWeather", omNs);  
-        OMElement p1 = fac.createOMElement("theCityCode", omNs);  
+        OMElement method = fac.createOMElement("getMobileCodeInfo", omNs);  
+        OMElement p1 = fac.createOMElement("mobileCode", omNs);  
         OMElement p2 = fac.createOMElement("userID", omNs);  
         method.addChild(p1);  
         method.addChild(p2);  
-        p1.setText(city);  
+        p1.setText(tel);  
         // 返回方法（实际上就是OMElement封装的xml字符串）  
         return method;  
     }  
-}  
+}

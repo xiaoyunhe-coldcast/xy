@@ -1,5 +1,6 @@
 package xy.yangtzeu.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,8 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import xy.yangtzeu.model.Comment;
 import xy.yangtzeu.model.Goods;
+import xy.yangtzeu.repository.CommentRepository;
 import xy.yangtzeu.repository.GoodsRepository;
 import xy.yangtzeu.service.GoodsService;
 import xy.yangtzeu.util.ConvertJson;
@@ -29,6 +33,10 @@ public class GoodsController {
 	
 	@Resource(name="goodsRepository")
 	private GoodsRepository GR;
+	
+	@Resource(name="commentRepository")
+	private CommentRepository CR;
+	
 	
 	ConvertJson cj = new ConvertJson();
 	
@@ -59,5 +67,29 @@ public class GoodsController {
 			e.printStackTrace();
 		}
 		return data;
+	}
+	
+	/**
+	 * 查询商品
+	 * @param id
+	 */
+	@RequestMapping("/query/{goodid}")
+	public ModelAndView remove(@PathVariable Integer goodid,Integer pageIndex,Integer pagesize){
+		ModelAndView mav = new ModelAndView("/goods/goodsshow");
+		Goods goods = new Goods();
+		List <Comment> comment = new ArrayList<Comment>();
+		try {
+			goods = GR.get(goodid);
+			if (pageIndex == 0 || pagesize == 0 ){
+				pageIndex = 1;
+				 pagesize = 20;
+			}
+			comment = CR.queryByGood(goodid,pageIndex , pagesize);
+		} catch (Exception e){
+			e.printStackTrace();
+		}
+		mav.addObject("good", goods);
+		mav.addObject("comlist", comment);
+		return mav;
 	}
 }

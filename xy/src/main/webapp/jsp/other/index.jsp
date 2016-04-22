@@ -7,9 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script type="text/javascript" src="/xy/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="/xy/easyui/jquery.easyui.min.js"></script>
+    <script src='/xy/js/zzsc.js' type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/icon.css">
      <link rel="stylesheet" type="text/css" href="/xy/css/index.css">
+     <link href="/xy/css/zzsc.css" rel="stylesheet" type="text/css"   />
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
@@ -25,7 +27,12 @@
 			    justified:true,
 			    tabPosition:'left',
 			}); 
+			//
+	
+	
 	});
+	
+	
 
 </script>
 <body >
@@ -129,71 +136,98 @@
 		</div>
 	</div>
 	<div id="product1">
-		<table title="产品展示" >
+		<table title="产品展示" >	
 			<tr  align="center">
-				<td>苹果</td>
-				<td>魅族</td>
-				<td>小米</td>
-				<td>华为</td>
-			</tr>		
-			<tr  align="center">
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/book/book1.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/book/book2.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/book/book3.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/book/book4.jpg" style="width:250px;height: 220px"></td>
 			</tr>
 			<tr  align="center">
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
+				<td><a href="#"> 四级料 &nbsp;价格 ￥30</a></td>
+				<td><a href="#">六级  价格 ￥30</a></td>
+				<td><a href="#">心理学资料 ￥80</a></td>
+				<td><a href="#">考研 ￥30</a></td>
 			</tr>
 		</table>
 	</div>
 	<div id="product2">
-		<table title="产品展示" >
+		<table title="产品展示" >		
 			<tr  align="center">
-				<td>苹果</td>
-				<td>魅族</td>
-				<td>小米</td>
-				<td>华为</td>
-			</tr>		
-			<tr  align="center">
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/tel/phone02.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/tel/mz02.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/tel/mi02.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/tel/hw02.jpg" style="width:250px;height: 220px"></td>
 			</tr>
 			<tr  align="center">
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
+				<td><a href="#">苹果  &nbsp;价格 ￥3800</a></td>
+				<td><a href="#">魅族&nabla; ￥1000</a></td>
+				<td><a href="#">小米 &nbsp; ￥1000</a></td>
+				<td><a href="#">华为 &nbsp;￥1000</a></td>
 			</tr>
 		</table>
 	</div>
 	<div id="product3">
-		<table title="产品展示" >
+		<marquee  width=100%  scrollAmount=6 behavior="alternate">
+			<table align="center" style="margin-left: 60px;">	
 			<tr  align="center">
-				<td>苹果</td>
-				<td>魅族</td>
-				<td>小米</td>
-				<td>华为</td>
-			</tr>		
-			<tr  align="center">
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
-				<td><img alt="1" src="/xy/img/index/1.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/clothes/Q1.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/clothes/T1.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/life/L4.jpg" style="width:250px;height: 220px"></td>
+				<td><img alt="1" src="/xy/img/goods/sport/S2.jpg" style="width:250px;height: 220px"></td>
 			</tr>
-			<tr  align="center">
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
-				<td><a href="#">价格 ￥1000</a></td>
-			</tr>
-		</table>
+			</table>
+		</marquee>
 	</div>
+		<div id="product4">
+			<div id="weather">
+				<form action="/xy/webservice/weather" method="post">
+					<table bgcolor="yellow">
+					<tr>
+						<td colspan="2">请输入城市 <input type="text" value="" name="city"><input type="submit" value="查询"></td>
+					</tr>
+					<tr>
+						<td colspan="2">天气情况：${weather.base }</td>
+					</tr>
+					<tr>
+						<td colspan="2">天气指数:${weather.description }</td>
+					</tr>
+					<tr>
+						<td>更新时间 :${weather.date }</td>
+						<td></td>
+					</tr>
+				</table>
+				</form>
+			</div>
+			<div id="greate">
+				<div id="tagscloud">
+					<a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码<a>
+				    <a href="http://sc.chinaz.com/" class="tagc2" >网页小图标</a>
+					<a href="http://sc.chinaz.com/" class="tagc1" >网站常用代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">代码笔记</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">js特效代码表</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">jquery特效代码表</a>
+					<a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码<a>
+					<a href="http://sc.chinaz.com/" class="tagc2" >网页小图标</a>
+					<a href="http://sc.chinaz.com/" class="tagc1" >网站常用代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">相册代码</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">js特效代码表</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">jquery特效代码表</a>
+				</div>
+			</div>
+	    </div>
 	<div id="south">
 		<jsp:include page="/jsp/other/buttom.jsp"/>
 	</div>

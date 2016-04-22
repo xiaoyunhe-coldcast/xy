@@ -6,12 +6,13 @@ import net.sf.json.JSONArray;
 import xy.yangtzeu.exception.BusinessException;
 
 /**
- * 格式转化工具
+ * json格式转化工具
  *
  * @author 肖云鹤
  * 2016年4月17日
  */
 public class ConvertJson{
+	
 	public String list2Json(List<?> list){
 		if(list == null||list.size()<1){
 			throw new BusinessException("集合是空的额");
