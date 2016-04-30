@@ -39,6 +39,7 @@ public abstract class AbstractEntityRepository <T,I>{
 	@Transactional	
 	public void update(T t) {
 		em.merge(t);		
+		
 	}
 	
 	/**

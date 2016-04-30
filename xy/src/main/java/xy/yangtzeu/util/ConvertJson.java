@@ -1,6 +1,9 @@
 package xy.yangtzeu.util;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.stereotype.Component;
+
 import com.google.gson.Gson;
 import net.sf.json.JSONArray;
 import xy.yangtzeu.exception.BusinessException;
@@ -11,9 +14,10 @@ import xy.yangtzeu.exception.BusinessException;
  * @author 肖云鹤
  * 2016年4月17日
  */
+@Component
 public class ConvertJson{
 	
-	public String list2Json(List<?> list){
+	public String list2Json(List list){
 		if(list == null||list.size()<1){
 			throw new BusinessException("集合是空的额");
 		}

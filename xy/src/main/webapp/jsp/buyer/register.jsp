@@ -126,17 +126,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					data:$("#form1").serialize(),
 					dataType:'json',
 					success: function(result){
-						alert(result.msg+"11");
 						$.messager.show({
 							title:'注册消息',
-							msg:msg,
+							msg:result.msg,
 							timeout:5000,
 							showType:'slide'
 						});
+						window.location.href = "/xy/jsp/other/index.jsp";
 						
 					},
 					error:function(result){
-						alert(result.msg);
+						$.messager.show({
+							title:'注册消息',
+							msg:result.msg,
+							timeout:5000,
+							showType:'slide'
+						});
 					}
 					
 				});

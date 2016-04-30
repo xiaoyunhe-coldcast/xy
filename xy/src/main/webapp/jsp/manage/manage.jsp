@@ -29,29 +29,31 @@
 </script>
 <body >
 	<div id="north">
-		<jsp:include page="/jsp/other/top.jsp"/>
+		
 	</div>
 	<div id="content">
 		<div id="west">
 				<div title="">
 				</div>
-			    <div title="信息管理" >   
+			    <div title="会员信息管理" >   
 					<ul class="ss">
 						<li><a href="/xy/jsp/buyer/register.jsp" target="main-center">车辆信息</a></li>
-						<li><a href="javascript:void(0)">货物信息</a></li>
-						<li><a href="javascript:void(0)">物流信息</a></li>
-						<li><a href="javascript:void(0)">企业信息</a></li>
+						<li><a href="javascript:void(0)">添加会员</a></li>
+						<li><a href="javascript:void(0)">查看会员</a></li>
+						<li><a href="javascript:void(0)">账号管理</a></li>
 					</ul>
 			    </div>   
-			    <div title="网站管理" >   
+			    <div title="卖家信息管理" >   
 					<ul class="ss">
-						<li><a href="javascript:void(0)" >公告管理</a></li>
-						<li><a href="logistics/admin/cusmtoer.jsp" target="main-center">会员管理</a></li>
+						<li><a href="javascript:void(0)" >添加卖家</a></li>
+						<li><a href="logistics/admin/cusmtoer.jsp" target="main-center">查看卖家</a></li>
 					</ul>		          
 			    </div>   
-			    <div title="退出">
+			    <div title="商品信息管理">
 					<ul class="ss">
-						<li><a href="javascript:void(0)" id="logout">退出</a></li>
+						<li><a href="javascript:void(0)" id="logout">查看商品</a></li>
+						<li><a href="javascript:void(0)" id="logout">添加</a></li>
+						<li><a href="javascript:void(0)" id="logout">xiu</a></li>
 					</ul>
 			    </div>   
 		</div>

@@ -18,6 +18,7 @@ import xy.yangtzeu.repository.CommentRepository;
 import xy.yangtzeu.repository.GoodsRepository;
 import xy.yangtzeu.repository.OrdersRepository;
 import xy.yangtzeu.service.BuyerService;
+import xy.yangtzeu.util.ConvertJson;
 
 /**
  * 买家 控制层
@@ -43,6 +44,7 @@ public class BuyerController {
 	@Resource(name="commentRepository")
 	private CommentRepository CR;
 	
+	ConvertJson tj = new ConvertJson();
 	
 	
 	
@@ -70,16 +72,16 @@ public class BuyerController {
 	 */
 	@RequestMapping("/login")
 	@ResponseBody
-	public Result login(String name , String password,HttpSession session){
+	public Result login(String name, String password, HttpSession session){
 		Result result = null;
 		Buyer bean = null;
 		try {
 			bean = BS.login(name, password);
 			result = Result.successResult("登录成功");
+			session.setAttribute("buyer", bean);
 		} catch(Exception e){
 			 result = Result.failureResult("登录失败"+e.getMessage());
 		}
-		session.setAttribute("buyer", bean);
 		return result;
 	}
 	
@@ -98,6 +100,7 @@ public class BuyerController {
 	 * @param id
 	 */
 	@RequestMapping("/remove/{id}")
+	@ResponseBody
 	public String remove(@PathVariable Integer id){
 		String msg = "";
 		try {
@@ -114,15 +117,16 @@ public class BuyerController {
 	 * @param id
 	 */
 	@RequestMapping("/update")
-	public String update(Buyer bean){
-		String msg = "";
+	@ResponseBody
+	public Result update(Buyer bean){
+		Result result = null;
 		try {
 			BR.update(bean);
-			msg = "修改成功！";
+			result = Result.successResult("修改成功！") ;
 		} catch (Exception e){
-			msg = "修改失败"+e.getMessage();
+			result = Result.successResult("修改失败"+e.getMessage()) ;
 		}
-		return msg;
+		return result;
 	}
 	
 	/**
@@ -167,9 +171,8 @@ public class BuyerController {
 	public Object querAll(int pageIndex ,int pageSize ,String like){
 		List <Buyer> list = BS.getAll(pageIndex, pageSize, like);
 		
-//		String json = JSONArray.fromObject(list).toString();
-//		String data = "{\"total\":"+cs.getcount()+" , \"rows\":"+json+"}";
-		return null;
+		String json = tj.list2Json(list);
+		String data = "{\"total\":"+BR.count()+" , \"rows\":"+json+"}";
+		return json;
 	}
-	
 }

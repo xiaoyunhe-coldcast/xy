@@ -33,8 +33,8 @@ public class Goods implements Serializable{
 	/** 商品名称  **/
 	private String name;
 	
-//	/** 生产日期  **/
-//	private Date date;
+	/** 生产日期  **/	
+	private String date;
 	
 	/** 商品描述  **/
 	private String description;
@@ -94,15 +94,15 @@ public class Goods implements Serializable{
 		this.name = name;
 	}
 
-//	@Temporal(TemporalType.DATE)
-//	@Column(name = "date", length = 0)
-//	public Date getDate() {
-//		return this.date;
-//	}
-//
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+	
+	@Column(name = "date", length = 20)
+	public String getDate() {
+		return this.date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 
 	@Column(name = "description", length = 50)
 	public String getDescription() {

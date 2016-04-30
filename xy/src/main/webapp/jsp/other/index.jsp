@@ -27,13 +27,29 @@
 			    justified:true,
 			    tabPosition:'left',
 			}); 
-			//
-	
-	
-	});
-	
-	
-
+			//天气预报的回显
+		    $('#query').click(function () {
+		    	city =  $("[name='city']").val();
+		        $.ajax({
+		            type: "post",
+		            dataType: "json",
+		            url: "/xy/webservice/weather",
+		            data :{'city':city},
+		            success: function (result) {
+		            	$.messager.show({
+		            		title:'天气预报消息',
+		            		msg:result.msg,
+		            		width:260,
+		            		height:250,
+		            		timeout:5000,
+		            		showType:'slide',
+		            	});
+		            }
+		        });
+		    });
+			
+			
+			});
 </script>
 <body >
 	<div id="north">
@@ -46,80 +62,80 @@
 			    <div title="电子产品">  
 			    	<table>
 			    		<tr>
-			    			<td><a href="/xy/jsp/buyer/register.jsp">手机</a></td>
-			    			<td><a href="#">手机配件</a></td>
+			    			<td><a href="/xy/goods/querytype/1">手机</a></td>
+			    			<td><a href="/xy/goods/querytype/1">手机配件</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">平板</a></td>
-			    			<td><a href="javascript:void(0)">耳机</a></td>
+			    			<td><a href="/xy/goods/querytype/1">平板</a></td>
+			    			<td><a href="/xy/goods/querytype/1">耳机</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">电脑</a></td>
-			    			<td><a href="javascript:void(0)">主板</a></td>
+			    			<td><a href="/xy/goods/querytype/1">电脑</a></td>
+			    			<td><a href="/xy/goods/querytype/1">主板</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">智能手表</a></td>
-			    			<td><a href="javascript:void(0)">手环</a></td>
+			    			<td><a href="/xy/goods/querytype/1">智能手表</a></td>
+			    			<td><a href="/xy/goods/querytype/1">手环</a></td>
 			    		</tr>
 			    	</table> 
 			    </div>   
 			    <div title="服装" >   
 			    	<table>
 			    		<tr>
-			    			<td><a href="/xy/jsp/buyer/register.jsp">T袖衫</a></td>
-			    			<td><a href="#">裙子</a></td>
+			    			<td><a href="/xy/goods/querytype/1">T袖衫</a></td>
+			    			<td><a href="/xy/goods/querytype/1">裙子</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">春装</a></td>
-			    			<td><a href="javascript:void(0)">休闲服</a></td>
+			    			<td><a href="/xy/goods/querytype/1">春装</a></td>
+			    			<td><a href="/xy/goods/querytype/1">休闲服</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">牛仔裤</a></td>
-			    			<td><a href="javascript:void(0)">卫衣</a></td>
+			    			<td><a href="/xy/goods/querytype/1">牛仔裤</a></td>
+			    			<td><a href="/xy/goods/querytype/1">卫衣</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">西装</a></td>
-			    			<td><a href="javascript:void(0)">特色服装</a></td>
+			    			<td><a href="/xy/goods/querytype/1">西装</a></td>
+			    			<td><a href="/xy/goods/querytype/1">特色服装</a></td>
 			    		</tr>
 			    	</table>          
 			    </div>   
 			    <div title="学习资料">
 					<table>
 			    		<tr>
-			    			<td><a href="/xy/jsp/buyer/register.jsp">四六级资料</a></td>
-			    			<td><a href="#">会计资格从业资料</a></td>
+			    			<td><a href="/xy/goods/querytype/1">四六级资料</a></td>
+			    			<td><a href="/xy/goods/querytype/1">会计资格从业资料</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">考研资料</a></td>
-			    			<td><a href="javascript:void(0)">教师资格考试资料</a></td>
+			    			<td><a href="/xy/goods/querytype/1">考研资料</a></td>
+			    			<td><a href="/xy/goods/querytype/1">教师资格考试资料</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">计算机专业书籍</a></td>
-			    			<td><a href="javascript:void(0)">医学常识</a></td>
+			    			<td><a href="/xy/goods/querytype/1">计算机专业书籍</a></td>
+			    			<td><a href="/xy/goods/querytype/1">医学常识</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">百科全书</a></td>
-			    			<td><a href="javascript:void(0)">其他</a></td>
+			    			<td><a href="/xy/goods/querytype/1">百科全书</a></td>
+			    			<td><a href="/xy/goods/querytype/1">其他</a></td>
 			    		</tr>
 			    	</table>     
 			    </div>   
 			    <div title="二手交易">
 					<table>
 			    		<tr>
-			    			<td><a href="/xy/jsp/buyer/register.jsp">数码产品</a></td>
-			    			<td><a href="#">学习资料</a></td>
+			    			<td><a href="/xy/goods/querytype/1">数码产品</a></td>
+			    			<td><a href="/xy/goods/querytype/1">学习资料</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">闲置物品</a></td>
-			    			<td><a href="javascript:void(0)">生活用品</a></td>
+			    			<td><a href="/xy/goods/querytype/1">闲置物品</a></td>
+			    			<td><a href="/xy/goods/querytype/1">生活用品</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">文体用具</a></td>
-			    			<td><a href="javascript:void(0)">旅游用品</a></td>
+			    			<td><a href="/xy/goods/querytype/1">文体用具</a></td>
+			    			<td><a href="/xy/goods/querytype/1">旅游用品</a></td>
 			    		</tr>
 			    		<tr>
-			    			<td><a href="javascript:void(0)">百科全书</a></td>
-			    			<td><a href="javascript:void(0)">其他</a></td>
+			    			<td><a href="/xy/goods/querytype/1">百科全书</a></td>
+			    			<td><a href="/xy/goods/querytype/1">其他</a></td>
 			    		</tr>
 			    	</table>   
 			    </div>   
@@ -181,23 +197,12 @@
 	</div>
 		<div id="product4">
 			<div id="weather">
-				<form action="/xy/webservice/weather" method="post">
 					<table bgcolor="yellow">
-					<tr>
-						<td colspan="2">请输入城市 <input type="text" value="" name="city"><input type="submit" value="查询"></td>
-					</tr>
-					<tr>
-						<td colspan="2">天气情况：${weather.base }</td>
-					</tr>
-					<tr>
-						<td colspan="2">天气指数:${weather.description }</td>
-					</tr>
-					<tr>
-						<td>更新时间 :${weather.date }</td>
-						<td></td>
+					<tr id="ws">
+						<td colspan="2">请输入城市 <input type="text" value="" name="city">
+						<input type="submit" value="查询" id="query"></td>
 					</tr>
 				</table>
-				</form>
 			</div>
 			<div id="greate">
 				<div id="tagscloud">

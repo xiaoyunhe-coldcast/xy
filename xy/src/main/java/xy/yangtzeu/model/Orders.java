@@ -46,7 +46,7 @@ public class Orders implements Serializable{
 	private Integer status;
 	
 	/** 下单时间   **/
-	private Date date;
+	private String date;
 	
 	/** 总计  **/
 	private Double total;
@@ -107,13 +107,12 @@ public class Orders implements Serializable{
 		this.status = status;
 	}
 
-	@Temporal(TemporalType.DATE)
 	@Column(name = "date", length = 0)
-	public Date getDate() {
+	public String getDate() {
 		return this.date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 

@@ -78,9 +78,23 @@
             topnavLi.hover(function(){},function(){  
                 subnavUl.slideUp('slow');  
             });  
-        },function(){  
+        },function(){
+        	$("#goout").click(function(){
+        		$.messager.confirm('确认','您确认想要注销记录吗？',function(r){    
+        		    if (r){    
+        		    	$.messager.show({
+        		    		title:'提示消息',
+        		    		msg:'注销成功',
+        		    		timeout:2000,
+        		    		showType:'slide'
+        		    	});
+        		    	setTimeout('window.location.href="/xy/buyer/logout"',2000);
+        		    }  
+        	});
+        	
         });  
     });  
+ });
 </script> 
 <body>
 	<div style="width: 100%" >
@@ -93,11 +107,11 @@
 		    <li style="width: 250px">
 		   		<c:if test="${empty buyer}">
 		   			<a href="/xy/jsp/buyer/buyerlogin.jsp" style="color: yellow;" >登录</a>
-		   			<a href="#" style="color: yellow;">注册</a>
+		   			<a href="/xy/jsp/buyer/register.jsp" style="color: yellow;">注册</a>
 		   		</c:if>
 		   		<c:if test="${!empty buyer}">
 		   			<a href="/xy/buyer/query/${buyer.buyerid }" style="color: yellow;">欢迎你，${buyer.buyername}</a>
-		   			<a href="/xy/buyer/logout" style="color: yellow;">注销</a>
+		   			<a  style="color: yellow;" id ="goout">注销</a>
 		   		</c:if>
 		    </li>
 		     <li style="width: 120px">  

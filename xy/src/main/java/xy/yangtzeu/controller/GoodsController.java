@@ -41,16 +41,16 @@ public class GoodsController {
 	ConvertJson cj = new ConvertJson();
 	
 	@RequestMapping("/querytype/{type}")
-	@ResponseBody
-	public Object QueryByType(@PathVariable Integer type){
-		String data = null;
+	public ModelAndView QueryByType(@PathVariable Integer type){
+		List <Goods>goodslist = null;
+		ModelAndView mav = new ModelAndView("/goods/goodstype");
 		try {
-			List <Goods>goodslist = GS.getByType(type);
-			data = cj.list2Json(goodslist);
+			goodslist = GS.getByType(type);
+			mav.addObject("good",goodslist );
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		return data;
+		return mav;
 	}
 	
 	@RequestMapping("/list")
@@ -92,4 +92,5 @@ public class GoodsController {
 		mav.addObject("comlist", comment);
 		return mav;
 	}
+	
 }

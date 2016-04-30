@@ -3,11 +3,14 @@ package xy.yangtzeu.controller;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import xy.yangtzeu.model.Result;
 import xy.yangtzeu.service.WebService;
+import xy.yangtzeu.util.ConvertJson;
 import xy.yangtzeu.webservice.bean.Weather;
 
 /**
@@ -22,17 +25,20 @@ public class WsController {
 	
 	@Resource(name="webService")
 	WebService ws ;
+	
+	@Autowired
+	ConvertJson tj;
 
 	/**
 	 * 天气预报
 	 */
 	@RequestMapping("/weather")
-	public ModelAndView logout(HttpServletRequest request){
-		
-		ModelAndView mav = new ModelAndView("/other/index");
+	@ResponseBody
+	public Result logout(HttpServletRequest request){
 		String city = request.getParameter("city");
 		Weather weather = ws.query(city);
-		mav.addObject("weather", weather);
-		return mav ;
+		Result result = null;
+		result =Result.successResult("天气信息:"+weather.getBase()+"详细描述："+weather.getDescription()+"; 更新时间："+weather.getDate());
+		return result ;
 	}
 }

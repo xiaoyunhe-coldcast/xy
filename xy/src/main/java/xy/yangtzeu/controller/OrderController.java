@@ -3,6 +3,7 @@ package xy.yangtzeu.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import xy.yangtzeu.model.Orders;
+import xy.yangtzeu.model.Result;
+import xy.yangtzeu.repository.BossRepository;
+import xy.yangtzeu.repository.BuyerRepository;
+import xy.yangtzeu.repository.GoodsRepository;
 import xy.yangtzeu.repository.OrdersRepository;
+import xy.yangtzeu.service.OrdersService;
 import xy.yangtzeu.util.ConvertJson;
 
 /**
@@ -26,6 +32,18 @@ public class OrderController {
 	
 	@Resource(name="ordersRepository")
 	private OrdersRepository OR;
+	
+	@Resource(name= "bossRepository")
+	private BossRepository BR;
+	
+	@Resource(name="buyerRepository")
+	private BuyerRepository YR;
+	
+	@Resource(name="goodsRepository")
+	private GoodsRepository GR;
+	
+	@Resource(name="ordersService")
+	OrdersService OS;
 	
 	ConvertJson cj = new ConvertJson();
 	
@@ -56,5 +74,48 @@ public class OrderController {
 			e.printStackTrace();
 		}
 		return mav;
+	}
+	
+	@RequestMapping("/add")
+	@ResponseBody
+	public Result addOne(HttpServletRequest request){
+		int buyerid = Integer.parseInt(request.getParameter("buyerid"));
+		int goodsid = Integer.parseInt(request.getParameter("goodsid"));
+		int bossid = Integer.parseInt(request.getParameter("bossid"));
+		int status = Integer.parseInt(request.getParameter("status"));
+		int num = Integer.parseInt(request.getParameter("num"));
+		String date = request.getParameter("date");
+		double total = Double.parseDouble(request.getParameter("total"));
+		String bz = request.getParameter("bz");
+		
+		Orders bean = new Orders();
+		
+		bean.setBuyer(YR.get(buyerid));
+		bean.setBoss(BR.get(bossid));
+		bean.setBz(bz);
+		bean.setDate(date);
+		bean.setGoods(GR.get(goodsid));
+		bean.setNum(num);
+		bean.setStatus(status);
+		bean.setTotal(total);
+		
+		Result result = null;
+		String msg = "";
+		try {
+		msg = (String) OS.add(bean);
+		result = Result.successResult(msg);
+		
+		} catch (Exception e){
+			
+		result = Result.failureResult("操作失败"+e.getMessage());
+		}
+		return result;
+	}
+	
+	
+	@RequestMapping("/remove/{orderid}")
+	@ResponseBody
+	public Result remove(){
+		return null;
 	}
 }

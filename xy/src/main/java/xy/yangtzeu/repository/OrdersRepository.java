@@ -47,7 +47,11 @@ public class OrdersRepository extends AbstractEntityRepository<Orders, Integer> 
 	
 	@Transactional
 	public List<Orders> query(int page ,int rows){
-		return null;
+		String hql = "from Orders";
+		List <Orders> list = em.createQuery(hql)
+				.setFirstResult((page-1)*rows)
+				.setMaxResults(rows).getResultList();
+		return list;
 	}
 	
 	@Transactional

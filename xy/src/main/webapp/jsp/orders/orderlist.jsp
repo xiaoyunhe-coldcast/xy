@@ -12,34 +12,37 @@
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
-	//转译函数
-	function formatertype(val){
-		if (val =="1"){
-			return '手机';
-		}
-		if (val =="2"){
-			return '服装';
-		}
-		if (val =="3"){
-			return '资料';
-		}
-	}
-	
-	//
-	function formaterdetail(val){
-		return '<a href="/xy/orders/query/{'+val+'}" >商品详细</a>';
-		}
-	
-	function formaterpic(val){
-		return '<img src="'+val+'" style="width:100px;height:50px" alt=>';
-	}
+
 	
 	$(function(){
-		$("#goods").datagrid({
-			idField:'goodsid',
+		//转译函数
+		function formatertype(val){
+			if (val =="1"){
+				return '<a href="">待付款</a>';
+			}
+			if (val =="2"){
+				return '<a href="#">已发货</a>';
+			}
+			if (val =="3"){
+				return '<a href="#">确认收货</a>';
+			}
+			if (val >="4"){
+				return '<a href="#">w</a>';
+			}
+		}
+		
+		//详情函数
+		function detail(value){
+			return '<a href="/xy/orders/query/'+value+'">订单详细</a>';
+			}
+		//数据表格
+		
+		$("#order").datagrid({
+			idField:'orderid',
 			url:'/xy/orders/list',
 			title:'订单信息',
-			width:790,
+			width:850,
+			height:500,
 			fitColumns:true,
 			rownumbers:true,
 			singleSelect:true,
@@ -51,64 +54,34 @@
 			pageSize:10,
 			pageList:[5,10,15,20],
 			columns:[[
-				{
-					field:"name",
-					title:"订单编号",
-					width:100,
-					checkbox :true,
-					align :'center'
-				},{
-					field:"boss",
-					title:"商品名称",
-					width:100,
-					align :'center',
-					formatter:	function a(val){
-						return val.name;
-					}
-				},{
-					field:"storage",
+			    {
+					field:"num",
 					title:"商品数量",
-				
-					width:100,
+					width:80,
 					align :'center',
-					formatter:	function a(val){
-						return val.count;
-					}
 				},{
-					field:"price",
-					title:"商品价格",
-					sortable :true,
-					align :'center',
-					width:100
-				},{
-					field:"address",
+					field:"total",
 					title:"总金额",
 					align :'center',
 					width:100
 				},{
-					field:"picture",
-					title:"商品图片",
-					align :'center',
-					formatter:formaterpic
-				},{
-					field:"description",
+					field:"date",
 					title:"下单时间",
 					align :'center',
 					width:100
 				},{
-					field:"bz",
+					field:"status",
 					align :'center',
 					title:"订单状态",
-				},{
-					field:"type",
-					title:"店家",
-					align :'center',
 					formatter:formatertype,
-				},{
-					field:"goodsid",
+					width :80
+					
+				}
+				,{
+					field:"orderid",
 					align :'center',
 					title:"订单详细",
-					formatter:formaterdetail
+					formatter:detail
 				}
 			]]
 			
@@ -119,10 +92,7 @@
 	<div>
 		
 	</div>
-	<div id="goods" align="center">
-		<div id="tb">
-		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/a>
-		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"/a>
+	<div id="order" align="center">
 	</div>
 	</div>
 </body>

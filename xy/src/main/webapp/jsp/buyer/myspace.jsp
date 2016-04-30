@@ -18,6 +18,54 @@
 		    width:350,
 		    height:650,
 		});  
+		//远程加载dioalog
+	    var $addEvent = $("#addEvent");  
+        // 初始化对话框  
+        $('#open').click(function(){
+        	 $("#edite").dialog('open')
+        });
+       $("#edite").dialog({  
+            title: '修改个人信息',  
+            width: 500,  
+            //height: 250,  
+            closed: true,  
+            modal: true  ,
+            cache: false,  
+            href: "/xy/jsp/buyer/edite.jsp",
+            buttons: [{  
+                text: ' 确认 ',  
+                iconCls:'icon-ok',
+                handler: function () {  
+                    $('#form1').form({    
+                        url:'/xy/buyer/update',    
+                        onSubmit: function(){    
+                        $("#edite").window("close");  
+                        },    
+                        success:function(result){   
+                        	$.messager.show({
+                        		title:'消息提示',
+                        		msg:'修改成功',
+                        		timeout:4000,
+                        		showType:'slide'
+                        	});  
+                        	//刷新页面
+                        	window.location.reload();
+                        }    
+                    });  
+                    $('#form1').submit(); 
+                }  
+            },  
+                {  
+                    text: '  取消  ',  
+                    iconCls:'icon-clear',
+                    handler: function () {  
+                    	 $("#edite").window("close");  
+                    }  
+                }  
+            ],  
+        });  
+		
+		
 	});
 
 </script>
@@ -25,6 +73,9 @@
 <body>
 	<div id="top">
 		<jsp:include page="/jsp/other/top.jsp"/>
+	</div>
+	<div id="edite">
+	
 	</div>
 	<div id="content">
 		<div id="left">
@@ -60,7 +111,7 @@
 					</tr>		
 					<tr>
 						<td colspan="2" align="center">
-							<a  class="easyui-linkbutton"  style="width: 100px;height: 30px;" target="main-center" href="#">编辑信息</a></td>
+							<a class="easyui-linkbutton"  style="width: 100px;height: 30px;" id="open">编辑信息</a></td>
 					</tr>		
 				</table>
 			</div>
@@ -108,7 +159,7 @@
 						</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="2" align="center"><a href="#" target="main-center">查看所有订单</a></td>
+					<td colspan="2" align="center"><a href="/xy/jsp/orders/orderlist.jsp" target="main-center">查看所有订单</a></td>
 				</tr>
 				</table>
 			</div>

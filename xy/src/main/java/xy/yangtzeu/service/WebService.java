@@ -20,6 +20,7 @@ public class WebService {
        
        String xml2 = client.weather(city);  
        String weathers [] =xml2.split("</string><string>");
+       weather.setAdress(weathers[1]);
        weather.setBase(weathers[5]);
        weather.setDate(weathers[3]);
        weather.setDescription(weathers[6]);
