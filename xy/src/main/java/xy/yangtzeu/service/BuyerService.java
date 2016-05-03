@@ -41,8 +41,9 @@ public class BuyerService {
 		Buyer buyer = BR.queryByName(name);
 		if (buyer.getBuyerpsw().equals(password)){
 			return buyer;
+		} else {
+			throw new BusinessException("用户名或者密码不正确");
 		}
-		throw new BusinessException("用户名或者密码不正确");
 	}
 	
 	/**

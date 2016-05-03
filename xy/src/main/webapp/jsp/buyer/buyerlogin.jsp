@@ -54,19 +54,17 @@
 			success:function(result){
 				if (result.msg == "登录成功"){
 					window.location.href = "/xy/jsp/other/index.jsp";
+				} else{
+					$.messager.show({
+						title : '登录消息',
+						msg : result.msg,
+						timeout : 5000,
+						showType : 'slide'
+					});  
 				}
 			},
-			error: function(result){
-				$.messager.show({
-					title:'登录消息',
-					msg:result.msg,
-					timeout:5000,
-					showType:'slide'
-				});
-			}
 	});
 }
-	
 </script>
 <body>
 

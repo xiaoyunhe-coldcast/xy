@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 
 	http://www.springframework.org/schema/context 
@@ -14,7 +12,7 @@
 	<mvc:annotation-driven />
 
 	<!-- 凡被org.springframework.stereotype.Controller标注的类将会加载到Spring的上下文中 -->
-	<context:component-scan base-package="xy.yangtzeu.controller">
+	<context:component-scan base-package="xy.yangtzeu.*">
 		<context:include-filter type="annotation"
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -40,8 +38,8 @@
 			</bean>
 		</property>
 	</bean>
-    
-    
+
+
 	<!-- 对模型视图名称的解析，即在模型视图名称添加前后缀 -->
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -55,7 +53,7 @@
 			<value>org.springframework.web.servlet.view.JstlView</value>
 		</property>
 	</bean>
-	
+
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding">
@@ -68,8 +66,8 @@
 			<value>4096</value>
 		</property>
 	</bean>
-	
-	
-	
-	
+
+
+
+
 </beans>

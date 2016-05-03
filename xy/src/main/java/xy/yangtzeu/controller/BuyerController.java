@@ -55,7 +55,7 @@ public class BuyerController {
 	 */
 	@RequestMapping("/save")
 	@ResponseBody
-	public Result  SaveBuyer(Buyer bean){
+	public Result SaveBuyer(Buyer bean){
 		Result result = null;
 		try {
 		    BS.save(bean);

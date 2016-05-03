@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import xy.yangtzeu.model.Boss;
 
+
 @Repository("bossRepository")
 public class BossRepository extends AbstractEntityRepository<Boss, Integer>{
 
@@ -43,5 +44,10 @@ public class BossRepository extends AbstractEntityRepository<Boss, Integer>{
 		.setMaxResults(pageSize)
 		.getResultList();
 		return list;
+	}
+	
+	public Boss login(String name) {
+		List<Boss> list = this.query("queryBossByName", name);
+		return list.size() > 0 ?list.get(0) : null;
 	}
 }
