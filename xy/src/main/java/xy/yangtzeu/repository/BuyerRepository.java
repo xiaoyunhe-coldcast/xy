@@ -63,12 +63,11 @@ public class BuyerRepository extends AbstractEntityRepository<Buyer, Integer> {
 	 * @return
 	 */
 	@Transactional
-	public List<Buyer> getAll(int pageIndex ,int pageSize ){
+	public List<Buyer> getAll(int page, int rows){
 		String hql = "from Buyer ";
-		List<Buyer> list = null;
-		list = em.createQuery(hql,Buyer.class)
-		.setFirstResult((pageIndex-1) * pageSize)
-		.setMaxResults(pageSize)
+		List<Buyer> list = em.createQuery(hql, Buyer.class)
+		.setFirstResult((page-1) * rows)
+		.setMaxResults(rows)
 		.getResultList();
 		return list;
 	}

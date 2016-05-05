@@ -1,5 +1,6 @@
 package xy.yangtzeu.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -49,17 +50,18 @@ public class BuyerService {
 	/**
 	 * 获取买家的集合
 	 */
-	public List<Buyer> getAll(Integer pageIndex ,Integer pageSize ,String like){
+	public List<Buyer> getAll(Integer page, Integer rows, String like){
 		List<Buyer> list = null;
-		if(pageIndex < 1 || pageSize >20){
-			pageIndex = 1;
-			pageSize = 10 ;
+		if(page <= 0 || rows >20){
+			page = 1;
+			rows = 10 ;
+		} 
+		if (like=="" || like == null){
+			list = BR.getAll(page, rows);
 		} else {
-			if (like.equals("")|| like == null){
-				list = BR.getAll(pageIndex, pageSize);
-			}
-			 list = BR.getAll(pageIndex, pageSize, like);
+			 list = BR.getAll(page, rows, like);
 		}
+		
 		return list;
 	}
 }

@@ -113,11 +113,24 @@
 			]]
 			
 		});
+		//
+		$('#type').combobox({    
+		    url:'/xy/json/goodtype.json',    
+		    valueField:'id',    
+		    textField:'text',
+		});  
 	});
 </script>
 <body >
 	<div>
-		
+		<ul>
+			<lable>商品类别&nbsp;</lable>
+			<input id="type" name="dept" value="">  
+			&nbsp;&nbsp;&nbsp;
+			<lable>商品价格&nbsp;</lable>
+			<input type="text" class="easyui-numberbox" value="99.99" data-options="min:0,precision:2"/>  
+			<a class="easyui-linkbutton">查询</a>
+		</ul>
 	</div>
 	<div id="goods" align="center">
 		<div id="tb">

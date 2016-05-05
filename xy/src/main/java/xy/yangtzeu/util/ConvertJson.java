@@ -18,7 +18,7 @@ import xy.yangtzeu.exception.BusinessException;
 public class ConvertJson{
 	
 	public String list2Json(List list){
-		if(list == null||list.size()<1){
+		if(list == null || list.size() < 1){
 			throw new BusinessException("集合是空的额");
 		}
 		String data = JSONArray.fromObject(list).toString();

@@ -8,14 +8,24 @@
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/icon.css">
     <link rel="stylesheet" type="text/css" href="/xy/css/myspace.css">
+    <script type="text/javascript" src="/xy/easyui/locale/easyui-lang-zh_CN.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
 <script type="text/javascript">
+//
+function formaterdetail(val){
+	return '<a href="/xy/goods/query/'+val+'?pageIndex=1&pagesize=20" target="_top">商品详细</a>';
+	}
+
+function formaterpic(val){
+	return '<img src="'+val+'" style="width:100px;height:50px" alt=>';
+}
+
 $(function(){
 	$("#buyer").datagrid({
 		idField:'uyerid',
-		url:'/xy/buyer/list?page=1&rows=20',
+		url:'/xy/buyer/list',
 		title:'买家信息',
 		width:790,
 		fitColumns:true,
@@ -31,62 +41,62 @@ $(function(){
 		columns:[[
 			{
 				field:"buyername",
-				title:"订单编号",
+				title:"买家用户名",
 				width:100,
 				checkbox :true,
 				align :'center'
 			},{
 				field:"realname",
-				title:"商品名称",
+				title:"真实姓名",
 				width:100,
 				align :'center',
-				formatter:	function a(val){
-					return val.name;
-				}
+				//formatter:	function a(val){
+					//return val.name;
+				//}
 			},{
 				field:"email",
-				title:"商品数量",
+				title:"邮箱地址",
 			
 				width:100,
 				align :'center',
-				formatter:	function a(val){
-					return val.count;
-				}
+				//formatter:	function a(val){
+				//	return val.count;
+				//}
 			},{
 				field:"sex",
-				title:"商品价格",
+				title:"性别",
 				sortable :true,
 				align :'center',
 				width:100
 			},{
 				field:"address",
-				title:"总金额",
+				title:"收货地址",
 				align :'center',
 				width:100
 			},{
 				field:"buyerpic",
-				title:"商品图片",
+				title:"用户头像",
 				align :'center',
-				formatter:formaterpic
+				//formatter:formaterpic
 			},{
 				field:"buyerjf",
-				title:"下单时间",
+				title:"积分",
 				align :'center',
 				width:100
 			},{
 				field:"status",
 				align :'center',
-				title:"订单状态",
+				title:"用户状态",
 			},{
 				field:"bz",
-				title:"店家",
+				title:"备注信息",
 				align :'center',
-				formatter:formatertype,
+				//formatter :formatertype,
 			},{
 				field:"goodsid",
 				align :'center',
-				title:"订单详细",
-				formatter:formaterdetail
+				title:"详细详细",
+				//formatter :formaterdetail,
 			}
 		]]
 		

@@ -1,0 +1,62 @@
+body{
+	width:100%;
+	margin: 0;
+	float: left;
+}
+#content{
+	float: left;
+	height:500px;
+	width:100%;
+	background:#8000ff;
+}
+
+#west{
+	float: left;
+	height:100%;
+	width:25%;
+	background:#8000ff;
+}
+#west table{
+	background-color: yellow;
+	height: 100%;
+	width: 100%;
+	font-size: 12pt;
+	font-weight:bold;
+} 
+
+#east{
+	float: left;
+	height:100%;
+	width:960px;
+	background:#8000ff;
+}
+#sorth{
+	float: left;
+	height:100px;
+	width:100%;
+	background:#B3DFDA;
+	padding:10px
+}
+#north{
+	float: left;
+	width:98%;
+	height:180px;
+	background:#ffff80;
+	padding:10px
+}
+#product1,#product2,#product3{
+	float: left;
+	width:100%;
+	height:300px;
+	background:#00ff00;
+}
+#product1 table,#product2 table,#product3 table{
+	border:0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	align:center;
+	font-size: 15pt;
+	font-weight:bold;
+	font-family: sans-serif;
+}

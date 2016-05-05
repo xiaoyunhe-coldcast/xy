@@ -46,8 +46,6 @@ public class BuyerController {
 	
 	ConvertJson tj = new ConvertJson();
 	
-	
-	
 	/**
 	 *  买家注册
 	 * @param bean
@@ -168,11 +166,14 @@ public class BuyerController {
 	 */
 	@RequestMapping("/list")
 	@ResponseBody
-	public Object querAll(int pageIndex ,int pageSize ,String like){
-		List <Buyer> list = BS.getAll(pageIndex, pageSize, like);
-		
+	public Object querAll(int page ,int rows ,String like){
+		if (like == null){
+			like ="";
+		}
+		List <Buyer> list = BS.getAll(page, rows, like);
 		String json = tj.list2Json(list);
 		String data = "{\"total\":"+BR.count()+" , \"rows\":"+json+"}";
-		return json;
+		System.out.println(data);
+		return data;
 	}
 }

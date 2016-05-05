@@ -7,15 +7,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CSS3动态背景登录框代码 - 站长素材</title>
+
 <link rel="stylesheet" type="text/css" href="/xy/css/styles.css">
 <script src="/xy/js/easyui/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/xy/easyui/jquery.easyui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/icon.css">
 </head>
 
 <body>
 <div class="htmleaf-container">
 	<div class="wrapper">
 		<div class="container">
-			<form class="form">
+			<form class="form" action="javascript:void(0)">
 				<input type="text" placeholder="Username" id="bossname">
 				<input type="password" placeholder="Password" id="psaaword">
 				<button type="submit" id="login-button">登陆</button>
@@ -40,26 +44,32 @@
 <script>
 $(function(){
 	$('#login-button').click(function () {
-		//alert("1");
 		name = $('#bossname').val();
 		password = $('#psaaword').val();
 	    $.ajax({
 			url:'/xy/boss/login',
 			type:'post',
 			data:{
-				"name" :name,
-				"password" :password,
+				'name': name,
+				'password': password,
 			},
 			dataType:'json',
 			success:function(result){
-			
 				if (result.msg == "登录成功"){
-					//event.preventDefault();
-				//	$('form').fadeOut(500);
-					//$('.wrapper').addClass('form-success');
-					window.location.href = "/xy/jsp/other/index.jsp";
+					$.messager.show({
+						title : '登录消息',
+						msg : result.msg+"2秒后自动跳转",
+						timeout : 5000,
+						showType : 'slide'
+					}); 
+					setTimeout('window.location.href = "/xy/jsp/manage/manage.jsp"',6000);
 				} else {
-					alert("22");
+					$.messager.show({
+						title : '登录消息',
+						msg : result.msg,
+						timeout : 5000,
+						showType : 'slide'
+					});  
 				}
 			}
 	});	
