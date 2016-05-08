@@ -34,7 +34,7 @@ public class OrdersService {
 	} 
 	
 	public void updatestatus(int oredrsid){
-		Orders bean =OR.get(oredrsid);
+		Orders bean = OR.get(oredrsid);
 		
 		if (bean.getStatus() < 5){
 			OR.updatestatus(oredrsid);

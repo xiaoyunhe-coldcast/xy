@@ -50,7 +50,8 @@ public class OrdersRepository extends AbstractEntityRepository<Orders, Integer> 
 		String hql = "from Orders";
 		List <Orders> list = em.createQuery(hql)
 				.setFirstResult((page-1)*rows)
-				.setMaxResults(rows).getResultList();
+				.setMaxResults(rows)
+				.getResultList();
 		return list;
 	}
 	
@@ -59,5 +60,4 @@ public class OrdersRepository extends AbstractEntityRepository<Orders, Integer> 
 		String hql = "update Orders o set o.status = o.status+1";
 		em.createQuery(hql);
 	}
-	
 }

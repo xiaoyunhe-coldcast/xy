@@ -51,7 +51,6 @@ public class OrderController {
 	@ResponseBody
 	public String getAll(int page,int rows){
 		String data = null;
-		
 		try {
 			List<Orders> goodslist = OR.query(page, rows);
 			data = cj.list2Json(goodslist);
@@ -115,7 +114,35 @@ public class OrderController {
 	
 	@RequestMapping("/remove/{orderid}")
 	@ResponseBody
-	public Result remove(){
+	public Result remove(@PathVariable Integer id){
+		Result result = null;
+		try {
+			OR.dropById(id);
+			result = Result.successResult("删除成功");
+		} catch (Exception e){
+			result = Result.failureResult("删除失败" + e.getMessage());
+		}
+		return result;
+	}
+	
+	@RequestMapping("/update")
+	@ResponseBody
+	public Result update(HttpServletRequest request){
+		request.getParameter("");
+		
 		return null;
+	}
+	
+	@RequestMapping("/updatetype/{id}")
+	@ResponseBody
+	public Result updatetype(@PathVariable Integer id){
+		Result result = null;
+		try {
+			OS.updatestatus(id);
+			result = Result.successResult("");
+		} catch (Exception e){
+			result = Result.failureResult(e.getMessage());
+		}
+		return result;
 	}
 }
