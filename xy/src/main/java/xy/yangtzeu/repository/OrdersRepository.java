@@ -29,7 +29,7 @@ public class OrdersRepository extends AbstractEntityRepository<Orders, Integer> 
 	 * @return
 	 */
 	@Transactional
-	public List<Orders> queryBybuyerid(Integer buyerid){
+	public List<Orders> queryBybuyerid(Integer buyerid) {
 		List<Orders> list = this.query("queryBybuyerid", buyerid);
 		return list.size() > 0 ?list : null;
 	}
@@ -40,13 +40,16 @@ public class OrdersRepository extends AbstractEntityRepository<Orders, Integer> 
 	 * @return
 	 */
 	@Transactional
-	public List<Orders> querygoodBybuyerid(Integer buyerid){
+	public List<Orders> querygoodBybuyerid(Integer buyerid) {
 		List<Orders> list = this.query("querygoodbuyerid", buyerid);
 		return list.size() > 0 ?list : null;
 	}
 	
+	/**
+	 * 查询全部订单
+	 */
 	@Transactional
-	public List<Orders> query(int page ,int rows){
+	public List<Orders> query(int page ,int rows) {
 		String hql = "from Orders";
 		List <Orders> list = em.createQuery(hql)
 				.setFirstResult((page-1)*rows)
@@ -55,9 +58,20 @@ public class OrdersRepository extends AbstractEntityRepository<Orders, Integer> 
 		return list;
 	}
 	
+	/**
+	 * 修改订单状态
+	 * @param ordersid
+	 */
 	@Transactional
-	public void updatestatus(int ordersid){
-		String hql = "update Orders o set o.status = o.status+1";
-		em.createQuery(hql);
+	public void updatestatus(int ordersid) {
+		String hql = "update Orders o set o.status = o.status+1 where o.orderid = ?";
+		em.createQuery(hql).setParameter(1, ordersid);
+	}
+	
+	//退款
+	@Transactional
+	public void returnmoney(int ordersid) {
+		String hql = "update Orders o set o.state = 0 where o.orderid = ?";
+		em.createQuery(hql).setParameter(1, ordersid);
 	}
 }

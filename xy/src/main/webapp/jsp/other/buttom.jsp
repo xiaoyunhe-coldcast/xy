@@ -9,6 +9,17 @@
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/icon.css">
 <title>Insert title here</title>
+<script type="text/javascript">
+	$(function(){
+		$("#admin").click(function(){
+			$.messager.confirm('确认','您确认想要进入后台吗？',function(r){   
+			    if (r){    
+			    	setTimeout('window.location.href="/xy/jsp/boss/bosslogin.jsp"',1000);   
+			    }  
+		});
+	});
+});
+</script>
 </head>
 <body>
 	<div align="center" style="background-color: orange;">
@@ -18,7 +29,7 @@
 		<p>运营许可证<a href="#">鄂A2-2016-04-11-22</a>&nbsp;&nbsp;
 		</p>
 		<p>
-			<a href="#">管理员登录</a>
+			<a id="admin">管理员登录</a>
 		</p>
 	</div>
 </body>

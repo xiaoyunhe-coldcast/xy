@@ -31,36 +31,43 @@
 	</div>
 	<div id="content">
 		<table bgcolor="yellow" border="1">
-			<c:forEach  var ="bean"  varStatus="status" step="1" items="${good}" end="16">
-				<c:if test="${status.index % 2 !=0 }">
+			
+			<c:forEach  var ="bean"  varStatus="status" items="${good}">
 					  <tr>
-						  <td >
-						  	<img src="${bean.picture}" alt="2" />
+						  <td align="center">
+						  	<img src="${bean.picture}" alt="1">
 						  </td>
-				</c:if>
-				<c:if test="${status.index % 2 ==0 }">
-					  <td align="center">
-					  	<img src="${bean.picture}" alt="1">
-					  </td>
+						  <td align="center">
+						  	<a href="#">商品名称 ：${bean.name }</a><br>
+						  	&nbsp;价格 ：${bean.price } 元
+						  </td>
 					  </tr>
-					   <tr>
-					  <td align="center">
-					  	<a href="#">商品名称 ：${bean.name }</a><br>
-					  	&nbsp;价格 ：${bean.price } 元
-					  </td>
-				</c:if>
-				<c:if test="${status.index % 2 == 0 }">
-					  <td align="center">
-					  	<a href="#">商品名称 ：${bean.name }</a><br>
-					  	&nbsp; 价格 ：${bean.price } 元
-					  </td>
-					  </tr>
-				</c:if>
 			</c:forEach>
+			<tr>
+			 <td colspan="6" align="center" bgcolor="#5BA8DE">共${page.totalRecords}条记录 共${page.totalPages}页 当前第${page.pageNo}页<br>
+		        <a href="/xy/goods/querytype/${type}?pageindex=${page.topPageNo }&pagesize=10">
+		        <input type="button" name="fristPage" value="首页" />
+		        </a>
+		        <c:choose>
+		          <c:when test="${page.pageNo!=1}">
+		              <a href="/xy/goods/querytype/${type}?pageindex=${page.previousPageNo }&pagesize=10"><input type="button" name="previousPage" value="上一页" /></a>
+		          </c:when>
+		          <c:otherwise>
+		              <input type="button" disabled="disabled" name="previousPage" value="上一页" />
+		          </c:otherwise>
+		        </c:choose>
+		        <c:choose>
+		          <c:when test="${page.pageNo != page.totalPages}">
+		            <a href="/xy/goods/querytype/${type}?pageindex=${page.nextPageNo }&pagesize=10"><input type="button" name="nextPage" value="下一页" /></a>
+		          </c:when>
+		          <c:otherwise>
+		              <input type="button" disabled="disabled" name="nextPage" value="下一页" />
+		          </c:otherwise>
+		        </c:choose>
+		        <a href="/xy/goods/querytype/${type}?pageindex=${page.bottomPageNo }&pagesize=10"><input type="button" name="lastPage" value="尾页" /></a>
+		    </td>
+		</tr>
 		</table>
-	</div>
-	<div id="buttom">
-	
 	</div>
 </body>
 </html>

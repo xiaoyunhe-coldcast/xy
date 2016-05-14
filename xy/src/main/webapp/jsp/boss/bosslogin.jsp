@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CSS3动态背景登录框代码 - 站长素材</title>
+<title>管理员登录</title>
 
 <link rel="stylesheet" type="text/css" href="/xy/css/styles.css">
 <script src="/xy/js/easyui/jquery.min.js" type="text/javascript"></script>
@@ -16,9 +16,11 @@
 </head>
 
 <body>
+
 <div class="htmleaf-container">
 	<div class="wrapper">
 		<div class="container">
+			<h1>校易后台登录</h1>
 			<form class="form" action="javascript:void(0)">
 				<input type="text" placeholder="Username" id="bossname">
 				<input type="password" placeholder="Password" id="psaaword">
@@ -62,12 +64,12 @@ $(function(){
 						timeout : 5000,
 						showType : 'slide'
 					}); 
-					setTimeout('window.location.href = "/xy/jsp/manage/manage.jsp"',6000);
+					setTimeout('window.location.href = "/xy/jsp/manage/manage.jsp"',3000);
 				} else {
 					$.messager.show({
 						title : '登录消息',
 						msg : result.msg,
-						timeout : 5000,
+						timeout : 2000,
 						showType : 'slide'
 					});  
 				}

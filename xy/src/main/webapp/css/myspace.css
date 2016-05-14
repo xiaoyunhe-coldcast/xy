@@ -6,7 +6,7 @@
 	float: left;
 	width: 1320px;
 	height: 800px;
-	background-color: olive;
+	background-color: #0080ff;
 }
 #left{
 	float: left;
@@ -25,10 +25,10 @@
 	float: left;
 	width: 73%;
 	height: 650px;
-	background-color: #8000ff;
+	background-color: #0080c0;
 }
-#buttom{
+#but{
 	float:left;
 	width: 100%;
-	height: 150px;
+	
 }

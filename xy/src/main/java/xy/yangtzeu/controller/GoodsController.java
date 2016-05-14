@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import xy.yangtzeu.model.Comment;
 import xy.yangtzeu.model.Goods;
+import xy.yangtzeu.model.Page;
 import xy.yangtzeu.model.Result;
 import xy.yangtzeu.repository.BossRepository;
 import xy.yangtzeu.repository.CommentRepository;
@@ -51,18 +52,22 @@ public class GoodsController {
 	ConvertJson cj = new ConvertJson();
 	
 	@RequestMapping("/querytype/{type}")
-	public ModelAndView QueryByType(@PathVariable Integer type){
+	public ModelAndView QueryByType(@PathVariable Integer type, Long pagesize, Long pageindex){
+		Page page = GR.getpage(pageindex.intValue(), pagesize.intValue(), "where t.type ="+type);
 		List <Goods>goodslist = new ArrayList<Goods>();
 		ModelAndView mav = new ModelAndView("/goods/goodstype");
 		try {
-			goodslist = GS.getByType(type);
-			mav.addObject("good",goodslist );
+			mav.addObject("good",page.getList());
+			mav.addObject("page", page);
+			mav.addObject("type",type);
 		} catch (Exception e){
+			mav.setViewName("/exception");
 			e.printStackTrace();
 		}
 		return mav;
 	}
 	
+	//json格式
 	@RequestMapping("/list")
 	@ResponseBody
 	public Object Queryall(int page,int rows,String order){
@@ -96,12 +101,14 @@ public class GoodsController {
 			comment = CR.queryByGood(goodid,pageIndex , pagesize);
 		} catch (Exception e){
 			e.printStackTrace();
+			mav.setViewName("/Exception/exception");
 		}
 		mav.addObject("good", goods);
 		mav.addObject("comlist", comment);
 		return mav;
 	}
 	
+	//删除
 	@RequestMapping("/remove/{id}")
 	@ResponseBody
 	public Result remove(@PathVariable Integer goodid){
@@ -125,22 +132,39 @@ public class GoodsController {
 			goods.setBoss(BR.get(bossid));
 			goods.setStorage(SR.get(storageid));
 			GR.save(goods);
-			result = Result.successResult("");
+			result = Result.successResult("操作成功");
 		} catch (Exception e){
-			result = Result.failureResult(e.getMessage());
+			result = Result.failureResult("操作失败"+e.getMessage());
 		}
 		return result;
 	}
 	
 	@ResponseBody
 	@RequestMapping("/update")
-	public Result update(Goods goods){
+	public Result update(HttpServletRequest request, Goods goods){
 		Result result = null;
-		
-		
-		
-		
+		try {
+			int bossid = Integer.parseInt(request.getParameter("bossid"));
+			int storageid = Integer.parseInt(request.getParameter("storageid"));
+			Result.successResult("修改成功");
+		} catch (Exception e){
+			result = Result.failureResult("修改失败"+e.getMessage());
+		}
 		return result;
 	}
 	
+	@RequestMapping("/all")
+	public ModelAndView getall(Long pageindex, Long pagesize){
+		ModelAndView mav = new ModelAndView("/goods/allgoods");
+		Page page = GR.getpage(pageindex.intValue(), pagesize.intValue(), "");
+		try {
+			List<Goods> goodslist = GR.getAll(pageindex.intValue(), pagesize.intValue(), null);
+			mav.addObject("good", goodslist);
+			mav.addObject("page", page);
+		} catch (Exception e) {
+			e.printStackTrace();
+			mav.setViewName("/Exception/exception");
+		}
+		return mav;
+	}
 }

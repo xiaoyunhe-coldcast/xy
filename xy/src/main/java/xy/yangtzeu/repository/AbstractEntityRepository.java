@@ -1,11 +1,18 @@
 package xy.yangtzeu.repository;
 import java.util.List;
+
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQuery;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.metamodel.EntityType;
+
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+
+import xy.yangtzeu.model.Page;
+
+
 
 /**
  *抽象实体工厂类，实现基本的对数据库操作
@@ -70,10 +77,38 @@ public abstract class AbstractEntityRepository <T,I>{
 	 * 查询总记录数
 	 */
 	@Transactional	
-	public Long count(){
-		Long count = (Long) em.createQuery("select count (t) from "+getEntityClazz().getSimpleName()+" t")
+	public Integer count(){
+		Long count = (Long) em.createQuery("select count (a) from "+getEntityClazz().getSimpleName()+" a")
 		.getSingleResult();
-		return count;
+		return count.intValue();
+	}
+	
+	@Transactional	
+	public List<T> pagelist(int offset, int length , String hql){
+		if (hql == null){
+			hql = "";
+		}
+	List<T> list =	em.createQuery("from "+getEntityClazz().getSimpleName()+" t "+hql).
+		setFirstResult(offset)
+        .setMaxResults(length)
+        .getResultList();
+		return list;
+	}
+	
+	@Transactional
+	public Page getpage(int currentPage, int pageSize, String hql){
+			Page page = new Page();        
+		    //总记录数
+			Integer allRow = count();
+		    //当前页开始记录
+		    int offset = page.countOffset(currentPage, pageSize);  
+		    //分页查询结果集 ; 
+		    page.setPageNo(currentPage);
+		    page.setPageSize(pageSize);
+		    page.setTotalRecords(allRow);
+		    page.setList(pagelist(offset, pageSize, hql));
+		  
+		    return page;
 	}
 	
 	/**

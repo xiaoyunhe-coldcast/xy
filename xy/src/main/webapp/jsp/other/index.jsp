@@ -62,7 +62,7 @@
 			    <div title="电子产品">  
 			    	<table>
 			    		<tr>
-			    			<td><a href="/xy/goods/querytype/1">手机</a></td>
+			    			<td><a href="/xy/goods/querytype/1?pagesize=10&pageindex=1">手机</a></td>
 			    			<td><a href="/xy/goods/querytype/1">手机配件</a></td>
 			    		</tr>
 			    		<tr>

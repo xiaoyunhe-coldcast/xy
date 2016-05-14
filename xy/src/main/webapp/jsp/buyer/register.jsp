@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>My JSP 'register.jsp' starting page</title>
+    <title>用户注册</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -157,77 +157,88 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 		});
 		
+		//
+		$('#address').combobox({    
+		    url:'/xy/json/adress.json',    
+		    valueField:'id',    
+		    textField:'text'   
+		});  
+		
 	});
 	</script>
   </head>
   
   <body >
-  <div style="position: absolute;left: 400px;top: 100px;width:600px;height:500px;">
-     <div id="register" >
-<form id="form1" action="#" method="post" >
-	<table>
-    	<tr>
-        	<td><b>用户名：</b></td>
-            <td><input type="text" name="buyername" id="username"/></td>
-        </tr>
-         <br/>
-    	<tr>
-        	<td><b>真实姓名：</b></td>
-            <td>
-            	<input name="realname" id="nickname" />
-            </td>
-        </tr>
-        <tr>
-        	<td><b>性&nbsp;&nbsp;&nbsp;&nbsp;别：</b></td>
-            <td>
-            	<input type="radio" name="sex" id="sex" value="男" />男
-            	<input type="radio" name="sex" id="sex" value="女" />女
-            	<input type="radio" name="sex" id="sex" value="unknown" checked />保密
-           </td>
-        </tr>		
-    	<tr>
-        	<td><b>密码：</b></td>
-            <td><input type="password" name="buyerpsw" id="password" value="" /></td>
-        </tr>
-    	<tr>
-        	<td><b>确认密码：</b></td>
-            <td><input type="password" name="cpassword" id="cpassword" value="" /></td>
-        </tr>		
-    	<tr>
-        	<td><b>手机号：</b></td>
-            <td><input id="tel" type="text" name="telephone" /></td>
-        </tr>
-        <br/>
-    	<tr>
-        	<td><b>邮箱：</b></td>
-            <td><input type="text" name="email"  id="mail" /></td>
-        </tr>
-        <tr>
-        	<td><b>地址:</b></td>
-        	<td><input type="text" name="address"  id="address" value="武汉"/></td>
-        </tr>
-        <tr>
-        	<td><b>备注</b></td>
-        	<td>
-        		<textarea rows="3" cols="25" name="bz">
-        		  123
-        		</textarea>
-        	</td>
-        </tr>
-         <tr>
-        	<td>
-        		<input type="hidden" name="status" value="0"> 
-        		<input type="hidden" name="buyerjf" value="200"> 
-        		<input type="hidden" name="" value=""> 
-        	</td>
-        </tr>
-    	<tr align="center" >
-        	<td colspan="2" ><a class="easyui-linkbutton" type="reset">重置</a>
-        	<a class="easyui-linkbutton" id="btn">保存</a></td>
-        </tr>
-    </table>
-</form>
-</div>
+  <div align="center">
+  	<div>
+  		<h1 align="center">用户注册</h1>
+  	</div>
+     <div id="register">
+		<form id="form1" action="#" method="post" >
+			<table>
+		    	<tr align="center">
+		        	<td><b>用户名：</b></td>
+		            <td><input type="text" name="buyername" id="username"/></td>
+		        </tr>
+		         <br/>
+		    	<tr align="center">
+		        	<td><b>真实姓名：</b></td>
+		            <td>
+		            	<input name="realname" id="nickname" />
+		            </td>
+		        </tr>
+		        <tr align="center">
+		        	<td><b>性&nbsp;&nbsp;&nbsp;&nbsp;别：</b></td>
+		            <td>
+		            	<input type="radio" name="sex" id="sex" value="男" />男
+		            	<input type="radio" name="sex" id="sex" value="女" />女
+		            	<input type="radio" name="sex" id="sex" value="unknown" checked />保密
+		           </td>
+		        </tr>		
+		    	<tr align="center">
+		        	<td><b>密码：</b></td>
+		            <td><input type="password" name="buyerpsw" id="password" value="" /></td>
+		        </tr>
+		    	<tr align="center">
+		        	<td><b>确认密码：</b></td>
+		            <td><input type="password" name="cpassword" id="cpassword" value="" /></td>
+		        </tr>		
+		    	<tr align="center">
+		        	<td><b>手机号：</b></td>
+		            <td><input id="tel" type="text" name="telephone" /></td>
+		        </tr>
+		        <br/>
+		    	<tr align="center">
+		        	<td><b>邮箱：</b></td>
+		            <td><input type="text" name="email"  id="mail" /></td>
+		        </tr>
+		        <tr align="center">
+		        	<td><b>地址:</b></td>
+		        	<td><input type="text" name="address"  id="address" value="武汉"/></td>
+		        </tr>
+		        <tr align="center">
+		        	<td><b>备注</b></td>
+		        	<td>
+		        		<input type="text" style="height: 70px; width: 200px" name="bz" />
+		        	</td>
+		        </tr>
+		         <tr align="center">
+		        	<td>
+		        		<input type="hidden" name="status" value="0"> 
+		        		<input type="hidden" name="buyerjf" value="200"> 
+		        		<input type="hidden" name="" value=""> 
+		        	</td>
+		        </tr>
+		    	<tr align="center" >
+		        	<td colspan="2" ><a class="easyui-linkbutton" type="reset">重置</a>
+		        	<a class="easyui-linkbutton" id="btn">保存</a></td>
+		        </tr>
+		    </table>
+		</form>
+	  </div>
+	  <div>
+	  	<a href="#">返回主页</a>
+	  </div>
   </div>
   </body>
 </html>

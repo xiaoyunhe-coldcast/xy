@@ -36,7 +36,7 @@
         padding: 10px 5px;  
         display: block;  
         float: left;  
-        color: yellow;  
+        color: green;  
          font-size: 15pt;
     }  
     .subnav {  
@@ -64,13 +64,15 @@
     }  
 </style>  
 <script type="text/javascript">  
+
     $(function(){  
-    	var myDate = new Date();
-    	myDate.toLocaleDateString();     //获取当前日期
-    	var mytime=myDate.toLocaleTimeString();     //获取当前时间
-    	var time= myDate.toLocaleString( );        //获取日期与时间
-    	$('#time').text(time);
-    	
+        	var myDate = new Date();
+       		myDate.toLocaleDateString();     //获取当前日期
+        	var mytime=myDate.toLocaleTimeString();     //获取当前时间
+        	var time= myDate.toLocaleString();        //获取日期与时间
+        	
+         	$('#time').text(time);
+   
         $('.topnav li a').hover(function(){  
             var topnavLi = $(this).parent();  
             var subnavUl = topnavLi.find('.subnav');  
@@ -98,8 +100,8 @@
 </script> 
 <body>
 	<div style="width: 100%" >
-		<marquee scrollAmount=2 width=100% behavior=alternate bgcolor="red" >
-		<p style="font-size: 12pt ">欢迎来到校园易购商城！ 欢迎来到校园易购商城！ 欢迎来到校园易购商城！</p>
+		<marquee scrollAmount=2 width=100% behavior=alternate bgcolor="pink" >
+		<p style="font-size: 12pt; color: black;">欢迎来到校园易购商城！ 欢迎来到校园易购商城！ 欢迎来到校园易购商城！</p>
 		</marquee>
 	</div>
 	<div style="width: 100%;height: 200px; background: url(/xy/img/other/banner.jpg)">  
@@ -120,16 +122,16 @@
 		    <li style="width: 120px">  
 		        <a href="#">全部商品</a>  
 		        <ul class="subnav">  
-		            <li><a href="#">子菜单1</a></li>  
-		            <li><a href="#">子菜单2</a></li>  
-		            <li><a href="#">子菜单3</a></li>  
+		            <li><a href="#">学习资料</a></li>  
+		            <li><a href="#">电子产品</a></li>  
+		            <li><a href="#">生活用品</a></li>  
 		        </ul>  
 		    </li>  
 		    <li style="width: 120px">  
 		        <a href="#">全部店家</a>  
 		        <ul class="subnav">  
-		            <li><a href="#">子菜单1</a></li>  
-		            <li><a href="#">子菜单2</a></li>  
+		            <li><a href="#">聚划算</a></li>  
+		            <li><a href="#">名誉卖家</a></li>  
 		            <li><a href="#">子菜单3</a></li>  
 		        </ul>  
 		    </li>  
@@ -142,7 +144,7 @@
 		        </ul>  
 		    </li>  
 		    <li style="float: right">
-		    	<a id="time"></a>
+		    	<a id="time" style="color: white"></a>
 		    </li>
 		</ul>  
 	</div>

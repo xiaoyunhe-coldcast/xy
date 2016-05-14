@@ -74,9 +74,6 @@
 	<div id="top">
 		<jsp:include page="/jsp/other/top.jsp"/>
 	</div>
-	<div id="edite">
-	
-	</div>
 	<div id="content">
 		<div id="left">
 			<div title="个人资料">
@@ -239,11 +236,8 @@
 			</div>
 		</div>
 		<div id="right">
-			<iframe name="main-center" style="width:100%;height:100%;border:0px;" src=""></ifranme>
+			<iframe name="main-center" style="width:100%;height:100%;border:0px;" src="/xy/html/change.html"></ifranme>
 		</div>
-	</div>
-	<div id="buttom">
-		<jsp:include page="/jsp/other/buttom.jsp"/>
 	</div>
 </body>
 </html>

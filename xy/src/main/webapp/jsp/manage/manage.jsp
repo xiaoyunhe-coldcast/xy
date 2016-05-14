@@ -103,7 +103,7 @@
 					"icon":"icon-sys",
 					"menuname":"系统菜单",
 					"menus":[{"menuid":"51",
-						"menuname":"菜单1",
+						"menuname":"跳转到前台",
 						"icon":"icon-nav",
 						"url":"/xy/html/demo.html"
 						},
@@ -185,6 +185,29 @@
             })
         });
 		
+        $(function(){
+			//天气预报的回显
+		    $('#query').click(function () {
+		    	city =  $("[name='city']").val();
+		        $.ajax({
+		            type: "post",
+		            dataType: "json",
+		            url: "/xy/webservice/weather",
+		            data :{'city':city},
+		            success: function (result) {
+		            	$.messager.show({
+		            		title:'天气预报消息',
+		            		msg:result.msg,
+		            		width:260,
+		            		height:250,
+		            		timeout:5000,
+		            		showType:'slide',
+		            	});
+		            }
+		        });
+		    });
+        	
+        })
 		
     </script>
     </head>
@@ -227,6 +250,14 @@
     </div>
 <div region="east" title="日期显示" split="true" style="width:180px;overflow:hidden;">
       <div class="easyui-calendar"></div>
+      <br>
+      <br>
+      <div>
+      	<tr id="ws" align="center">
+			<td colspan="2">请输入城市 查询天气<input type="text" value="" name="city">
+			<input type="submit" value="查询" id="query"></td>
+		</tr>
+      </div>
     </div>
 <!--修改密码窗口-->
 <div id="w" class="easyui-window" title="修改密码" collapsible="false" minimizable="false"

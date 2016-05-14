@@ -19,7 +19,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="goods")
-@NamedQueries({@NamedQuery(name="queryGoodsBytype",query="from Goods b where b.type=?1")})
+//@NamedQueries({@NamedQuery(name="queryGoodsBytype",query="from Goods b where b.type=?1")})
 public class Goods implements Serializable{
 	
 	private static final long serialVersionUID = 4837499902401177206L;

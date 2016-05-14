@@ -1,10 +1,13 @@
 package xy.yangtzeu.repository;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import xy.yangtzeu.model.Goods;
 
 /**
@@ -30,9 +33,15 @@ public class GoodsRepository extends AbstractEntityRepository<Goods, Integer>{
 	 * @return
 	 */
 	@Transactional
-	public List<Goods> queryBytype(Integer type){
-		List<Goods> list = this.query("queryGoodsBytype", type);
-		return list.size() > 0 ?list : null;
+	public List<Goods> queryBytype(Integer type, int pageIndex, int pageSize){
+		
+		String hql = "from Goods b where b.type=?";
+		List <Goods> list = em.createQuery(hql,Goods.class)
+		.setParameter(1, type)
+		.setFirstResult((pageIndex-1) * pageSize)
+		.setMaxResults(pageSize)
+		.getResultList();
+		return list;
 	}
 	
 	/**

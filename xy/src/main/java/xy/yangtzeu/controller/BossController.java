@@ -30,7 +30,6 @@ public class BossController {
 	@Resource(name="BossService")
 	private BossService BS;
 	
-	
 	@RequestMapping("/login")
 	@ResponseBody
 	public Result login(String name, String password, HttpSession session, HttpServletRequest request){
@@ -53,8 +52,8 @@ public class BossController {
 			session.removeAttribute("boss");
 		} catch(Exception e){
 			e.getMessage();
+			mav.setViewName("Exception/exception");
 		}
 		return mav;
 	}
-	
 }

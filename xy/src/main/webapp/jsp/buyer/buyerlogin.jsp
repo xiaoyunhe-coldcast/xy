@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>DIV+CSS布局教程</title>
+<title>用户登录</title>
 	<script type="text/javascript" src="/xy/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="/xy/easyui/jquery.easyui.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/default/easyui.css">
@@ -70,7 +70,9 @@
 
 <div id="Container">
     <div id="Header">
-        <div id="logo">这里设置了padding属性介绍一下padding的用法,padding将设置文本与边框的距离。</div>
+        <div id="logo">
+        	<h1 align="center" style="color:white;">欢迎登录</h1>
+        </div>
     </div>
     <div id="Content">
         <div id="Content-Left">
@@ -130,7 +132,9 @@
         </div>
     </div>
     <div class="Clear"><!--如何你上面用到float,下面布局开始前最好清除一下。--></div>
-    <div id="Footer">Footer</div>
+    <div id="Footer">
+    	
+    </div>
 </div>
 </body>
 </html>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import xy.yangtzeu.model.Comment;
 import xy.yangtzeu.model.Orders;
 import xy.yangtzeu.model.Result;
 import xy.yangtzeu.repository.BossRepository;
@@ -71,6 +72,7 @@ public class OrderController {
 			mav.addObject("orders", bean);
 		} catch (Exception e){
 			e.printStackTrace();
+			mav.setViewName("Exception/exception");
 		}
 		return mav;
 	}
@@ -127,22 +129,47 @@ public class OrderController {
 	
 	@RequestMapping("/update")
 	@ResponseBody
-	public Result update(HttpServletRequest request){
-		request.getParameter("");
+	public Result update(HttpServletRequest request, Comment com){
+		Result result = null ;
 		
+		request.getParameter("");
+		try {
+			result = Result.successResult("更新成功");
+		} catch (Exception e) {
+			e.printStackTrace();
+			result = Result.failureResult("操作失败"+e.getMessage());
+		}
 		return null;
 	}
 	
+	//修改订单状态
 	@RequestMapping("/updatetype/{id}")
 	@ResponseBody
 	public Result updatetype(@PathVariable Integer id){
 		Result result = null;
 		try {
 			OS.updatestatus(id);
-			result = Result.successResult("");
+			result = Result.successResult("操作成功");
 		} catch (Exception e){
 			result = Result.failureResult(e.getMessage());
 		}
 		return result;
 	}
+	
+	//退款 修改订单状态为0 并返回金额
+	@RequestMapping("/return/{id}")
+	@ResponseBody
+	public Result returnmony(@PathVariable Integer id){
+		Result result = null;
+		
+		
+		try {
+			
+			result = Result.successResult("");
+		} catch (Exception e){
+			result = Result.failureResult("");
+		}
+		return result;
+	}
+	
 }
