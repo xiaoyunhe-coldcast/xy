@@ -33,6 +33,11 @@ public class CommentController {
 		return mav;
 	}
 	
+	/**
+	 * 删除评论
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping("/remove/{id}")
 	@ResponseBody
 	public Result remove(@PathVariable Integer id){
@@ -45,6 +50,4 @@ public class CommentController {
 		}
 		return result;
 	}
-	
-
 }

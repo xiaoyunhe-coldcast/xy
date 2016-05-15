@@ -30,6 +30,9 @@ public class BossController {
 	@Resource(name="BossService")
 	private BossService BS;
 	
+	/**
+	 * 登录
+	 */
 	@RequestMapping("/login")
 	@ResponseBody
 	public Result login(String name, String password, HttpSession session, HttpServletRequest request){
@@ -45,6 +48,10 @@ public class BossController {
 		return result;
 	}
 	
+	/**
+	 * 退出登录
+	 * 
+	 */
 	@RequestMapping("/logout")
 	public ModelAndView logout(HttpSession session){
 		ModelAndView mav = new ModelAndView("/boss/bosslogin");

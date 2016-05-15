@@ -14,6 +14,11 @@ import xy.yangtzeu.webservice.bean.Weather;
 @Service("webService")
 public class WebService {
 	
+	/**
+	 * 天气预报
+	 * @param city
+	 * @return
+	 */
 	public Weather query(String city){
        Weatherws client = new Weatherws();  
        Weather weather = new Weather();

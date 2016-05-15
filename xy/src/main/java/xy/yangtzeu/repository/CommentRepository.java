@@ -31,7 +31,7 @@ public class CommentRepository extends AbstractEntityRepository<Comment, Integer
 	}
 	
 	@Transactional
-	public List<Comment> queryByGood(Integer goodsid,int pageIndex ,int pagesize ){
+	public List<Comment> queryByGood(Integer goodsid, int pageIndex, int pagesize ){
 		if (pagesize < 2){
 			pagesize = 5 ;
 		}

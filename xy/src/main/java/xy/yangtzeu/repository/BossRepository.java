@@ -46,8 +46,27 @@ public class BossRepository extends AbstractEntityRepository<Boss, Integer>{
 		return list;
 	}
 	
+	/**
+	 * 登录
+	 * @param name
+	 * @return
+	 */
+	@Transactional
 	public Boss login(String name) {
 		List<Boss> list = this.query("queryBossByName", name);
 		return list.size() > 0 ?list.get(0) : null;
 	}
+	
+	/**
+	 * 修改密码
+	 * @param password
+	 * @param bossid
+	 */
+	@Transactional
+	public void updatepaw(String password, Integer bossid){
+		em.createQuery("update Boss b set b.password = ? where b.bossid = ? ")
+		.setParameter(1, password)
+		.setParameter(2, bossid);
+	}
+	
 }

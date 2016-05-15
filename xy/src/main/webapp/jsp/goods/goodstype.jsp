@@ -21,8 +21,6 @@
 #content{
 	position: absolute;
 	left: 200px;
-	
-	
 }
 </style>
 <body>
@@ -31,7 +29,6 @@
 	</div>
 	<div id="content">
 		<table bgcolor="yellow" border="1">
-			
 			<c:forEach  var ="bean"  varStatus="status" items="${good}">
 					  <tr>
 						  <td align="center">
@@ -39,7 +36,10 @@
 						  </td>
 						  <td align="center">
 						  	<a href="#">商品名称 ：${bean.name }</a><br>
-						  	&nbsp;价格 ：${bean.price } 元
+						  	&nbsp;价格 ：${bean.price} 元
+						  </td>
+						  <td>
+						  	<a href="#">加入购物车</a>
 						  </td>
 					  </tr>
 			</c:forEach>

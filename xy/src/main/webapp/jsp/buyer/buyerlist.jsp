@@ -15,16 +15,38 @@
 <script type="text/javascript">
 //
 function formaterdetail(val){
-	return '<a href="/xy/goods/query/'+val+'?pageIndex=1&pagesize=20" target="_top">商品详细</a>';
+	return '<a href="/xy/goods/query/'+val+'?pageIndex=1&pagesize=20" target="_top">商品详细'
+			+'</a>&nbsp; <input type="button" onclick="remove('+val+')" value="删除"/>';
 	}
 
 function formaterpic(val){
-	return '<img src="'+val+'" style="width:100px;height:50px" alt=>';
+	return '<img src="'+val+'" style="width:100px;height:50px" alt ="1">';
 }
 
 $(function(){
+	function remove(val){
+		alert("e");
+	    $.ajax({
+			url:'/xy/buyer/remove/',
+			type:'post',
+			dataType:'json',
+			success:function(result){
+				$.messager.show({
+					title : '系统消息',
+					msg : result.msg,
+					timeout : 5000,
+					showType : 'slide'
+					});  
+				}
+			});
+		}
+		
+		
+	
+	
+	//数据表格
 	$("#buyer").datagrid({
-		idField:'uyerid',
+		idField:'buyerid',
 		url:'/xy/buyer/list',
 		title:'买家信息',
 		width:790,
@@ -50,18 +72,17 @@ $(function(){
 				title:"真实姓名",
 				width:100,
 				align :'center',
-				//formatter:	function a(val){
-					//return val.name;
-				//}
+				formatter: function a(val){
+					return val;
+				}
 			},{
 				field:"email",
 				title:"邮箱地址",
-			
 				width:100,
 				align :'center',
-				//formatter:	function a(val){
-				//	return val.count;
-				//}
+				formatter:	function a(val){
+					return val;
+				}
 			},{
 				field:"sex",
 				title:"性别",
@@ -77,7 +98,7 @@ $(function(){
 				field:"buyerpic",
 				title:"用户头像",
 				align :'center',
-				//formatter:formaterpic
+				formatter:formaterpic
 			},{
 				field:"buyerjf",
 				title:"积分",
@@ -93,10 +114,10 @@ $(function(){
 				align :'center',
 				//formatter :formatertype,
 			},{
-				field:"goodsid",
+				field:"buyerid",
 				align :'center',
-				title:"详细详细",
-				//formatter :formaterdetail,
+				title:"操作",
+				formatter :formaterdetail,
 			}
 		]]
 		
@@ -105,6 +126,7 @@ $(function(){
 
 </script>
 <body>
+	<div></div>
 	<div id="buyer">
 	
 	</div>

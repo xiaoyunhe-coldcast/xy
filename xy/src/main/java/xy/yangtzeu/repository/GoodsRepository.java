@@ -51,7 +51,7 @@ public class GoodsRepository extends AbstractEntityRepository<Goods, Integer>{
 	 * @return
 	 */
 	@Transactional
-	public List<Goods> getAll(int pageIndex ,int pageSize,String order){
+	public List<Goods> getAll(int pageIndex, int pageSize, String order){
 		if (order == ""||order == null){
 			order = "asc";
 		}

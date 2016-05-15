@@ -41,14 +41,14 @@ public class BuyerRepository extends AbstractEntityRepository<Buyer, Integer> {
 	 * @return
 	 */
 	@Transactional
-	public List<Buyer> getAll(int pageIndex ,int pageSize ,String like){
+	public List<Buyer> getAll(int pageIndex, int pageSize, String like){
 		String hql = "from Buyer b where b.buyername like ? or b.realname like ? or b.address like ?";
 		List<Buyer> list = null;
 		
 		list = em.createQuery(hql,Buyer.class)
-		.setParameter(1, " %"+like+"% ")
-		.setParameter(2, " %"+like+"% ")
-		.setParameter(3, " %"+like+"% ")
+		.setParameter(1, "%"+like+"% ")
+		.setParameter(2, "%"+like+"% ")
+		.setParameter(3, "%"+like+"% ")
 		.setFirstResult((pageIndex-1) * pageSize)
 		.setMaxResults(pageSize)
 		.getResultList();

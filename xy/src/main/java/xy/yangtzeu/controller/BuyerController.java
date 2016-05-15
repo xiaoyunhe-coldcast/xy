@@ -103,6 +103,7 @@ public class BuyerController {
 		String msg = "";
 		try {
 			BR.dropById(id);
+			System.out.println("开始删除。。。");
 			msg = "删除成功";
 		} catch (Exception e){
 			msg = "删除失败"+e.getMessage();
@@ -161,7 +162,7 @@ public class BuyerController {
 	}
 	
 	/**
-	 * 查询所有的买家
+	 * 查询所有的买家 支持模糊查询
 	 * @return
 	 */
 	@RequestMapping("/list")

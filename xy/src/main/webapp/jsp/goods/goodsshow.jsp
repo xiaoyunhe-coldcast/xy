@@ -175,7 +175,7 @@
 						<td>综合评价 :很好~</td>
 					</tr>
 					<tr>
-						<td>生产时间:</td>
+						<td>生产时间:${good.date }</td>
 						<td>商品描述:${good.description }</td>
 					</tr>
 					<tr>
@@ -224,7 +224,8 @@
 								★★★★☆	
 								</c:if>
 								<c:if test="${com.score == 0}">
-								☆☆☆☆☆									</c:if></td>
+								☆☆☆☆☆		
+								</c:if></td>
 							</tr>
 							<tr>
 								<td align="center" colspan="2">${com.content }</td>
