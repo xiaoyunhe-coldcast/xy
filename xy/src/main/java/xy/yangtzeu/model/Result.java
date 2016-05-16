@@ -15,6 +15,9 @@ public class Result implements Serializable{
 		this.msg = msg;
 	}
 	
+	public Result(){
+	}
+	
 	public static Result sucessResult(){
 		return successResult("操作成功");
 	}
@@ -38,5 +41,4 @@ public class Result implements Serializable{
 	public  String getMsg(){
 		return msg;
 	}
-	
 }

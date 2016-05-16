@@ -120,7 +120,7 @@
 		        <a href="/xy/jsp/other/index.jsp">主页</a>  
 		    </li>  
 		    <li style="width: 120px">  
-		        <a href="#">全部商品</a>  
+		        <a href="/xy/goods/all?pageindex=1&pagesize=10&search=">全部商品</a>  
 		        <ul class="subnav">  
 		            <li><a href="#">学习资料</a></li>  
 		            <li><a href="#">电子产品</a></li>  

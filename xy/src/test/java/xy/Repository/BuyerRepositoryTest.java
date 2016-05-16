@@ -23,14 +23,14 @@ public class BuyerRepositoryTest {
 	public void test(){
 		Buyer buyer = new Buyer();
 		buyer.setBuyername("123456");
-		buyer.setRealname("天天");
+		buyer.setRealname("njj");
 		buyer.setBuyerpsw("123456");
 		buyer.setEmail("172662@qq.com");
 		buyer.setSex("男");
 		buyer.setAddress("12");
 		buyer.setTelephone("321");
 		buyer.setBuyerpic("32");
-		
+		buyer.setMoney(22.0);
 		buy.save(buyer);
 	}
 	

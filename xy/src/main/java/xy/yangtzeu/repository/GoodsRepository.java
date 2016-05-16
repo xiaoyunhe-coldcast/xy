@@ -56,8 +56,8 @@ public class GoodsRepository extends AbstractEntityRepository<Goods, Integer>{
 			order = "asc";
 		}
 		String hql = "from Goods g order by g.price "+order;
-		List<Goods> list = new ArrayList<>();
-		list = em.createQuery(hql,Goods.class)
+		List<Goods> list = new ArrayList<Goods>();
+		list = em.createQuery(hql, Goods.class)
 		.setFirstResult((pageIndex-1) * pageSize)
 		.setMaxResults(pageSize)
 		.getResultList();

@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import xy.yangtzeu.model.Boss;
 import xy.yangtzeu.model.Comment;
 import xy.yangtzeu.model.Goods;
 import xy.yangtzeu.model.Page;
 import xy.yangtzeu.model.Result;
+import xy.yangtzeu.model.Storage;
 import xy.yangtzeu.repository.BossRepository;
 import xy.yangtzeu.repository.CommentRepository;
 import xy.yangtzeu.repository.GoodsRepository;
@@ -122,6 +124,7 @@ public class GoodsController {
 		return result;
 	}
 	
+	/** 增加商品 **/
 	@ResponseBody
 	@RequestMapping("/add")
 	public Result add(HttpServletRequest request, Goods goods){
@@ -139,6 +142,7 @@ public class GoodsController {
 		return result;
 	}
 	
+	/**修改商品**/
 	@ResponseBody
 	@RequestMapping("/update")
 	public Result update(HttpServletRequest request, Goods goods){
@@ -146,6 +150,11 @@ public class GoodsController {
 		try {
 			int bossid = Integer.parseInt(request.getParameter("bossid"));
 			int storageid = Integer.parseInt(request.getParameter("storageid"));
+			Storage storage  = SR.get(storageid);
+			Boss boss = BR.get(bossid);
+			Goods goods1 = GS.save(goods, boss, storage);
+			GR.save(goods1);
+			
 			Result.successResult("修改成功");
 		} catch (Exception e){
 			result = Result.failureResult("修改失败"+e.getMessage());
@@ -154,11 +163,16 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/all")
-	public ModelAndView getall(Long pageindex, Long pagesize){
+	public ModelAndView getall(Long pageindex, Long pagesize, String search){
+		System.out.println(pageindex+""+pagesize+""+search);
+		String hql = " where t.name = '"+search+"'";
+		if (search == "" || search == null){
+			hql = "";
+		}
 		ModelAndView mav = new ModelAndView("/goods/allgoods");
-		Page page = GR.getpage(pageindex.intValue(), pagesize.intValue(), "");
+		Page page = GR.getpage(pageindex.intValue(), pagesize.intValue(), hql);
 		try {
-			List<Goods> goodslist = GR.getAll(pageindex.intValue(), pagesize.intValue(), null);
+			List<Goods> goodslist = GR.getAll(pageindex.intValue(), pagesize.intValue(), "desc");
 			mav.addObject("good", goodslist);
 			mav.addObject("page", page);
 		} catch (Exception e) {

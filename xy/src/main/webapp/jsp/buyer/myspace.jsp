@@ -12,60 +12,64 @@
      <link rel="stylesheet" type="text/css" href="/xy/css/myspace.css">
 <title>我的校易</title>
 <script type="text/javascript">
-	$(function(){
-		$('#left').accordion({    
-		    animate:true,
-		    width:350,
-		    height:650,
-		});  
-		//远程加载dioalog
-	    var $addEvent = $("#addEvent");  
-        // 初始化对话框  
-        $('#open').click(function(){
-        	 $("#edite").dialog('open')
-        });
-       $("#edite").dialog({  
-            title: '修改个人信息',  
-            width: 500,  
-            //height: 250,  
-            closed: true,  
-            modal: true  ,
-            cache: false,  
-            href: "/xy/jsp/buyer/edite.jsp",
-            buttons: [{  
-                text: ' 确认 ',  
-                iconCls:'icon-ok',
-                handler: function () {  
-                    $('#form1').form({    
-                        url:'/xy/buyer/update',    
-                        onSubmit: function(){    
-                        $("#edite").window("close");  
-                        },    
-                        success:function(result){   
-                        	$.messager.show({
-                        		title:'消息提示',
-                        		msg:'修改成功',
-                        		timeout:4000,
-                        		showType:'slide'
-                        	});  
-                        	//刷新页面
+$(function(){
+	$('#left').accordion({    
+	    animate:true,
+	    width:350,
+	    height:650,
+	});  
+	//远程加载dioalog
+    var $addEvent = $("#addEvent");  
+    // 初始化对话框  
+    $('#open').click(function(){
+    	 $("#edite").dialog('open');
+    });
+   $("#edite").dialog({  
+        title: '修改个人信息',  
+        width: 500,  
+        //height: 250,  
+        closed: true,  
+        modal: true  ,
+        cache: false,  
+        href: "/xy/jsp/buyer/edite.jsp",
+        buttons: [{  
+            text: ' 确认 ',  
+            iconCls:'icon-ok',
+            handler: function () {  
+                $('#form1').form({    
+                    url:'/xy/buyer/update',    
+                    onSubmit: function(){    
+                    	$("#edite").window("close");  
+                    },    
+                    success: function(result){  
+                    	$.messager.show({
+                    		title:'消息提示',
+                    		width :250,
+                    		height: 120,
+                    		msg:"修改成功",
+                    		timeout:5000,
+                    		showType:'slide'
+                    	});  
+                    	if (result.msg != null){
+                    		//刷新页面
                         	window.location.reload();
-                        }    
-                    });  
-                    $('#form1').submit(); 
+                    	}
+                   	 }    
+                });  
+                $('#form1').submit(); 
+            }  
+        },  
+            {  
+                text: ' 取消  ',  
+                iconCls:'icon-clear',
+                handler: function () {  
+                	 $("#edite").window("close");  
                 }  
-            },  
-                {  
-                    text: '  取消  ',  
-                    iconCls:'icon-clear',
-                    handler: function () {  
-                    	 $("#edite").window("close");  
-                    }  
-                }  
-            ],  
-        });  
-		
-	});
+            }  
+        ],  
+    });  
+	
+});
 
 </script>
 </head>
@@ -73,6 +77,7 @@
 	<div id="top">
 		<jsp:include page="/jsp/other/top.jsp"/>
 	</div>
+	<div id="edite"></div>
 	<div id="content">
 		<div id="left">
 			<div title="个人资料">
@@ -107,7 +112,7 @@
 					</tr>		
 					<tr>
 						<td colspan="2" align="center">
-							<a class="easyui-linkbutton"  style="width: 100px;height: 30px;" id="open">编辑信息</a></td>
+							<a class="easyui-linkbutton"  style="width: 100px; height: 30px;" id="open">编辑信息</a></td>
 					</tr>		
 				</table>
 			</div>
@@ -231,11 +236,11 @@
 				</table>
 			</div>
 			<div title="我的账户">
-			
+				<p>余额：${buyer.money}</p>
 			</div>
 		</div>
 		<div id="right">
-			<iframe name="main-center" style="width:100%;height:100%;border:0px;" src="/xy/html/change.html"></ifranme>
+			<iframe name="main-center" style="width:100%;height:100%;border:0px;" src=""></ifranme>
 		</div>
 	</div>
 </body>

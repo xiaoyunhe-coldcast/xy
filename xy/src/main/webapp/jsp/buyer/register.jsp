@@ -11,7 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     <title>用户注册</title>
-    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -31,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var pattern = /^[a-zA-Z]{3,8}[a-zA-Z0-9]$/;
 					return pattern.test(value);    
         		},    
-       			message: '用户名格式不正确'   
+       			message: '用户名格式不正确,请输入4到8个字符'   
     		},
     
     		nickname:{
@@ -39,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var pattern = /^[a-zA-Z0-9]{4,10}$/;
 					return pattern.test(value);
 				},
-				message:'昵称格式不正确'
+				message:'昵称格式不正确请输入5到10个字符'
     		},
 			password: {
 				validator:function(value){
@@ -127,13 +126,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					dataType:'json',
 					success: function(result){
 						$.messager.show({
-							title:'注册消息',
+							title:'注册消息，即将跳转到首页',
 							msg:result.msg,
 							timeout:5000,
 							showType:'slide'
 						});
-						window.location.href = "/xy/jsp/other/index.jsp";
-						
+						setTimeout('window.location.href = "/xy/jsp/other/index.jsp"',3000);
 					},
 					error:function(result){
 						$.messager.show({
@@ -143,7 +141,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							showType:'slide'
 						});
 					}
-					
 				});
 			} else {
 				alert('信息不完整，无法提交');	
@@ -153,7 +150,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					timeout:5000,
 					showType:'slide'
 				});
-
 			}
 		});
 		
@@ -207,7 +203,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        	<td><b>手机号：</b></td>
 		            <td><input id="tel" type="text" name="telephone" /></td>
 		        </tr>
-		        <br/>
+		        <br>
 		    	<tr align="center">
 		        	<td><b>邮箱：</b></td>
 		            <td><input type="text" name="email"  id="mail" /></td>
@@ -226,7 +222,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        	<td>
 		        		<input type="hidden" name="status" value="0"> 
 		        		<input type="hidden" name="buyerjf" value="200"> 
-		        		<input type="hidden" name="" value=""> 
+		        		<input type="hidden" name="money" value="200"> 
+		        		<input type="hidden" name="buyerpic" value="/xy/img/buyer/buyer1.jpg"> 
 		        	</td>
 		        </tr>
 		    	<tr align="center" >
@@ -237,7 +234,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 	  </div>
 	  <div>
-	  	<a href="#">返回主页</a>
+	  	<a href="/xy/jsp/other/index.jsp">返回主页</a>
 	  </div>
   </div>
   </body>

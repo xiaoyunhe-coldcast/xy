@@ -24,8 +24,8 @@
 
 </script>
 <form id="form1" action="#" method="post" >
-	<table id ="table" width="200px">
-		<tr><td colspan="2">修改个人资料</td></tr>
+	<table id ="table" width="200px" align="center">
+		<tr><td colspan="2"><h2>修改个人资料</h2></td></tr>
     	<tr>
         	<td><b>用户名：</b></td>
             <td><input type="text" name="buyername" id="username" value="${buyer.buyername}"/></td>

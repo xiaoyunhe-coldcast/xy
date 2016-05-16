@@ -9,38 +9,44 @@
 </head>
 <style type="text/css">
 #content td{
-	width: 400px;
-
+	width: 300px;
 }
 
 #content img{
 	width :300px ;
-	height :300px;
+	height :200px;
 
 }
 #content{
-	position: absolute;
-	left: 200px;
+
 }
 </style>
 <body>
 	<div id="top">
 		<jsp:include page="/jsp/other/top.jsp"/>
 	</div>
-	<div id="content">
+	<div id="content" align="center">
 		<table bgcolor="yellow" border="1">
-			<c:forEach  var ="bean"  varStatus="status" items="${good}">
+			<c:forEach  var ="bean"  varStatus="status" items="${good}" step="1">
 					  <tr>
-						  <td align="center">
-						  	<img src="${bean.picture}" alt="1">
+					  	<td align="center" value="${status.index }">
+						  	<img src="${bean.picture}" alt="1" >
 						  </td>
-						  <td align="center">
+						  <td  align="center" value="${status.index }">
 						  	<a href="#">商品名称 ：${bean.name }</a><br>
-						  	&nbsp;价格 ：${bean.price} 元
+						  	&nbsp;价格 ：${bean.price} 元 <br>
+						  	<a href="/xy/goods/query/${bean.goodsid }?pageIndex=1&pagesize=20">查看详情</a>
 						  </td>
-						  <td>
-						  	<a href="#">加入购物车</a>
-						  </td>
+						  	<td align="center" value="${status.index+1 }">
+							  	<img src="${bean.picture}" alt="1" >
+							  </td>
+							  <td align="center" value="${status.index+1 }">
+							  	<a href="#">商品名称 ：${bean.name }</a><br>
+							  	&nbsp;价格 ：${bean.price} 元 <br>
+							  	<a href="/xy/goods/query/${bean.goodsid }?pageIndex=1&pagesize=20">查看详情</a>
+							  </td>
+						</tr>
+						  
 					  </tr>
 			</c:forEach>
 			<tr>

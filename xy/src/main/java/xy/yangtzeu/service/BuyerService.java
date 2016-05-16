@@ -6,6 +6,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import xy.yangtzeu.exception.BusinessException;
 import xy.yangtzeu.model.Buyer;
@@ -61,7 +62,6 @@ public class BuyerService {
 		} else {
 			 list = BR.getAll(page, rows, like);
 		}
-		
 		return list;
 	}
 }

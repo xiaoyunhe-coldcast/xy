@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.metamodel.EntityType;
 
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
@@ -20,6 +21,7 @@ import xy.yangtzeu.model.Page;
  * @param <T> 实体类型
  * @param <I> 主键类型
  */
+@Component
 public abstract class AbstractEntityRepository <T,I>{
 
 	@PersistenceContext(unitName="jpaxy")
@@ -36,8 +38,13 @@ public abstract class AbstractEntityRepository <T,I>{
 	 * 持久化实体对象
 	 */
 	@Transactional
-	public void save(T t) {
-		em.persist(t);
+	public void save(T t){
+		try {
+			em.persist(t);
+			System.out.println(t.toString());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -46,7 +53,6 @@ public abstract class AbstractEntityRepository <T,I>{
 	@Transactional	
 	public void update(T t) {
 		em.merge(t);		
-		
 	}
 	
 	/**
@@ -88,7 +94,7 @@ public abstract class AbstractEntityRepository <T,I>{
 		if (hql == null){
 			hql = "";
 		}
-	List<T> list =	em.createQuery("from "+getEntityClazz().getSimpleName()+" t "+hql).
+	List<T> list =	em.createQuery("from "+getEntityClazz().getSimpleName()+" as t "+hql).
 		setFirstResult(offset)
         .setMaxResults(length)
         .getResultList();

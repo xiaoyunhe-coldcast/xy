@@ -54,11 +54,13 @@ public class BuyerController {
 	@RequestMapping("/save")
 	@ResponseBody
 	public Result SaveBuyer(Buyer bean){
+		Buyer buyer1 = new Buyer(bean);
 		Result result = null;
 		try {
-		    BS.save(bean);
+		    BS.save(buyer1);
 		   result = Result.successResult("注册成功");
 		} catch (Exception  e){
+			e.printStackTrace();
 			result = Result.failureResult("注册失败"+e.getMessage());
 		}
 		return result;
@@ -117,12 +119,16 @@ public class BuyerController {
 	 */
 	@RequestMapping("/update")
 	@ResponseBody
-	public Result update(Buyer bean){
+	public Result update(Buyer bean, HttpSession session){
 		Result result = null;
 		try {
+			System.out.println(bean);
 			BR.update(bean);
-			result = Result.successResult("修改成功！") ;
+			session.removeAttribute("buyer");
+			session.setAttribute("buyer", bean);
+			result = Result.successResult("修改成功！");
 		} catch (Exception e){
+			e.printStackTrace();
 			result = Result.successResult("修改失败"+e.getMessage()) ;
 		}
 		return result;

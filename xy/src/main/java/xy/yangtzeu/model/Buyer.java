@@ -72,9 +72,8 @@ public class Buyer implements Serializable{
 //	/** 评论  **/
 //	private Set <Comment> comments =  new HashSet<Comment>(0);
 	
-
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "buyerid", unique = true, nullable = false)
 	public Integer getBuyerid() {
 		return this.buyerid;
@@ -221,5 +220,23 @@ public class Buyer implements Serializable{
 				+ ", buyerjf=" + buyerjf + ", buyerpic=" + buyerpic + ", bz=" + bz + ", status=" + status + ", money="
 				+ money + "]";
 	}
+
+	public Buyer(Buyer bean) {
+		super();
+		this.buyername = bean.getBuyername();
+		this.realname = bean.getRealname();
+		this.buyerpsw = bean.getBuyerpsw();
+		this.email = bean.getEmail();
+		this.sex = bean.getSex();
+		this.address = bean.getAddress();
+		this.telephone = bean.getTelephone();
+		this.buyerpic = bean.getBuyerpic();
+		this.bz = bean.getBz();
+		this.status = bean.getStatus();
+		this.money = bean.getMoney();
+	}
 	
+	public Buyer(){
+		super();
+	}
 }
