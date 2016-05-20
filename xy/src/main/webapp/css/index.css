@@ -17,7 +17,7 @@ body{
 	background:#8000ff;
 }
 #west table{
-	background-color: yellow;
+	background-color: #eff50a;
 	height: 100%;
 	width: 100%;
 	font-size: 12pt;
@@ -28,7 +28,7 @@ body{
 	float: left;
 	height:100%;
 	width:960px;
-	background:purple;
+	background:#eff50a;
 }
 #sorth{
 	float: left;

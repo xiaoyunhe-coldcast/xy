@@ -14,18 +14,20 @@
 <style type="text/css">
 #content {
 	width: 100%;
-	background-color: gray;
+	background-color: #eff50a;
 	float: left;
 }
 #left{
 	float: left;
-	width: 500px;
+	width: 300px;
 	
 }
 #data{
 	float: left;
 }
-
+#reader{
+	color: blue;
+}
 </style>
 <script type="text/javascript">
 		$(function(){
@@ -49,22 +51,20 @@
 <div id="content" >
 		<div title="列表" id="left" align="center">
 			<ul> <h3>商品分类<h3></h3></ul>
-			<c:forEach var="bean" items="${good }">
-				<a href="/xy/goods/querytype/${bean.type}?pagesize=10&pageindex=1">
-						<c:if test="${bean.type == 1}">
+				<a href="/xy/goods/querytype/1?pagesize=10&pageindex=1">
 							电子产品
-						</c:if>
-						<c:if test="${bean.type == 2}">
+					</a><br><a href="/xy/goods/querytype/2?pagesize=10&pageindex=1">
 							生活用品
-						</c:if>
-						<c:if test="${bean.type == 3}">
+					</a><br><a href="/xy/goods/querytype/3?pagesize=10&pageindex=1">
 							体育器材
-						</c:if>
-						<c:if test="${bean.type == 4}">
+					</a><br><a href="/xy/goods/querytype/4?pagesize=10&pageindex=1">
 							学习资料
-						</c:if>
-					</a><br>
-			</c:forEach>
+					</a><br><a href="/xy/goods/querytype/5?pagesize=10&pageindex=1">
+							虚拟点券
+					</a><br><a href="/xy/goods/querytype/6?pagesize=10&pageindex=1">
+							零食
+							</a>
+							
 		</div>
 	<div id ="data" align="center" title="展示">
 		<ul id ="search" align="center">
@@ -125,6 +125,36 @@
 		        </c:choose>
 		        <a href="/xy/goods/all?pageindex=${page.bottomPageNo }&pagesize=10&search="><input type="button" name="lastPage" value="尾页" /></a>
 		   	 </td>
+			</tr>
+		</table>
+	</div>
+	<div title="公告" id="right" align="center">
+		<h3>商品公告</h3>	
+		<table id="reader">
+			<tr>
+				<td><h4>公告标题</h4></td>
+				<td align="center"><h4>公告内容</h4></td>
+				<td><h4>发布时间</h4></td>
+			<tr>
+			<tr>
+				<td>商品售罄公告</td>
+				<td><p>由于考研，四六级考试，计算机考试</p>
+					<p>许多资料书面临缺货</td>
+				<td>2016-03-01</td>
+			</tr>
+			<tr>
+				<td>新增公告</td>
+				<td><p>二手市场已经更新大量产品</p>
+					<p>欢迎大家浏览</p>
+				</td>
+				<td>2016-03-12</td>
+			</tr>
+			<tr>
+				<td>修改通知</td>
+				<td><p>即将开放支付宝支付和微信支付</p>
+					<p>敬请期待</p>
+				</td>
+				<td>2016-04-01</td>
 			</tr>
 		</table>
 	</div>

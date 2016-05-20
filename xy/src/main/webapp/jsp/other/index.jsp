@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="/xy/easyui/themes/icon.css">
      <link rel="stylesheet" type="text/css" href="/xy/css/index.css">
      <link href="/xy/css/zzsc.css" rel="stylesheet" type="text/css"   />
-<title>Insert title here</title>
+<title>商城首页</title>
 </head>
 <script type="text/javascript">
 	$(function(){  
@@ -139,11 +139,61 @@
 			    		</tr>
 			    	</table>   
 			    </div>   
-			    <div title="">
+			    <div title="休闲食品">
+			    	<table>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">数码产品</a></td>
+			    			<td><a href="/xy/goods/querytype/1">学习资料</a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">闲置物品</a></td>
+			    			<td><a href="/xy/goods/querytype/1">生活用品</a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">文体用具</a></td>
+			    			<td><a href="/xy/goods/querytype/1">旅游用品</a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">百科全书</a></td>
+			    			<td><a href="/xy/goods/querytype/1">其他</a></td>
+			    		</tr>
+			    	</table>  
 				</div>
-				<div title="">
+				<div title="娱乐用品">
+					<table>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">音箱</a></td>
+			    			<td><a href="/xy/goods/querytype/1">电吉他</a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">钓鱼竿</a></td>
+			    			<td><a href="/xy/goods/querytype/1"> </a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">文体用具</a></td>
+			    			<td><a href="/xy/goods/querytype/1">旅游用品</a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">百科全书</a></td>
+			    			<td><a href="/xy/goods/querytype/1">其他</a></td>
+			    		</tr>
+			    	</table>  
 				</div>
-				<div title="">
+				<div title="虚拟电子券">
+					<table>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">Q币</a></td>
+			    			<td><a href="/xy/goods/querytype/1">DNF游戏卡</a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">手机话费</a></td>
+			    			<td><a href="/xy/goods/querytype/1">LOL点券</a></td>
+			    		</tr>
+			    		<tr>
+			    			<td><a href="/xy/goods/querytype/1">好邻居电子券</a></td>
+			    			<td><a href="/xy/goods/querytype/1">家乐福购物券</a></td>
+			    		</tr>
+			    	</table>  
 				</div>
 		</div>
 			<div id="east">
@@ -199,37 +249,34 @@
 			<div id="weather">
 					<table bgcolor="yellow">
 					<tr id="ws">
-						<td colspan="2">请输入城市 <input type="text" value="" name="city">
+						<td colspan="2">请输入城市查询天气 <input type="text" value="" name="city">
 						<input type="submit" value="查询" id="query"></td>
 					</tr>
 				</table>
 			</div>
 			<div id="greate">
 				<div id="tagscloud">
-					<a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
-					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码<a>
-				    <a href="http://sc.chinaz.com/" class="tagc2" >网页小图标</a>
-					<a href="http://sc.chinaz.com/" class="tagc1" >网站常用代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">代码笔记</a>
-					<a href="http://sc.chinaz.com/" class="tagc5">js特效代码表</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">jquery特效代码表</a>
-					<a href="http://sc.chinaz.com/" class="tagc1">js特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
-					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码<a>
-					<a href="http://sc.chinaz.com/" class="tagc2" >网页小图标</a>
-					<a href="http://sc.chinaz.com/" class="tagc1" >网站常用代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">js特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc5">jquery特效代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">网页小图标</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">相册代码</a>
-					<a href="http://sc.chinaz.com/" class="tagc5">js特效代码表</a>
-					<a href="http://sc.chinaz.com/" class="tagc2">jquery特效代码表</a>
+					<a href="http://sc.chinaz.com/" class="tagc1">ipone se</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">小米 max</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">华硕 笔记本</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">迷你小音箱<a>
+				    <a href="http://sc.chinaz.com/" class="tagc2" >连衣裙</a>
+					<a href="http://sc.chinaz.com/" class="tagc1" >T恤</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">鼠标</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">键盘</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">辣条</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">面包</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">耳机</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">卫衣</a>
+					<a href="http://sc.chinaz.com/" class="tagc1">钓鱼竿</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">自行车</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">摩托车 </a>
+					<a href="http://sc.chinaz.com/" class="tagc2">二手手机<a>
+					<a href="http://sc.chinaz.com/" class="tagc2" >篮球</a>
+					<a href="http://sc.chinaz.com/" class="tagc1" >羽毛球拍</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">固态硬盘</a>
+					<a href="http://sc.chinaz.com/" class="tagc5">内存条</a>
+					<a href="http://sc.chinaz.com/" class="tagc2">保暖大衣</a>
 				</div>
 			</div>
 	    </div>

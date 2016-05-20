@@ -160,7 +160,8 @@ $(function(){
 						</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="2" align="center"><a href="/xy/jsp/orders/orderlist.jsp" target="main-center">查看所有订单</a></td>
+					<td colspan="2" align="center">
+					<a href="/xy/jsp/orders/orderlist.jsp" target="main-center">查看所有订单</a></td>
 				</tr>
 				</table>
 			</div>
@@ -240,7 +241,7 @@ $(function(){
 			</div>
 		</div>
 		<div id="right">
-			<iframe name="main-center" style="width:100%;height:100%;border:0px;" src=""></ifranme>
+			<iframe name="main-center" style="width:100%;height:100%;border:0px;" src="/xy/html/my.html"></ifranme>
 		</div>
 	</div>
 </body>

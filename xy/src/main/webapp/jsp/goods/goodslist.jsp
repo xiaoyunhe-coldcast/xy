@@ -31,7 +31,7 @@
 		}
 	
 	function formaterpic(val){
-		return '<img src="'+val+'" style="width:100px;height:50px" alt=>';
+		return '<img src="'+val+'" style="width:100px;height:50px" alt="1">';
 	}
 	
 	$(function(){
@@ -134,9 +134,6 @@
 	</div>
 	<div id="goods" align="center">
 		<div id="tb">
-		<!--  <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"/a>
-		<a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true"/a>
-		-->
 	</div>
 	</div>
 </body>

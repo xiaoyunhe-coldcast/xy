@@ -108,7 +108,7 @@
 	margin-left: 200px;
 	float: left;
 	width: 1000px;
-	height: 600px;
+	height: 510px;
 }
 #product table{
 	width: 900px;
@@ -124,27 +124,27 @@
 	
 }
 </style>
-<body>
+<body bgcolor="yellow">
 	<div id="top">
 		<jsp:include page="/jsp/other/top.jsp"/>
 	</div>
 	<div id="content">
 		<div id="product" >
-			<table border="1">
+			<table border="0">
 				<tr>
 					<td rowspan="7" width="70%">
 						<img src="${good.picture }" alt="1" width="600px" height="400px">
 					</td>
-					<td align="center">商品名称 :${good.name }</td>
+					<td align="center">商品名称 : ${good.name }</td>
 				</tr>
 				<tr>
-					<td align="center">商品价格 :	${good.price }</td>
+					<td align="center">商品价格 :	${good.price } 元</td>
 				</tr>
 				<tr>
-					<td align="center">发货地址 :${good.address }</td>
+					<td align="center">发货地址 : ${good.address }</td>
 				</tr>
 				<tr>
-					<td align="center">库存 :${good.storage.count }</td>
+					<td align="center">库存 : ${good.storage.count } 件</td>
 				</tr>
 				<tr height="100px">
 					<td align="center">商品描述信息 :${good.description }</td>
@@ -159,9 +159,9 @@
 				</tr>
 			</table>
 		</div>
-		<div id="comment">
+		<div id="comment" >
 			<div title="商品介绍">
-				<table id="chan">
+				<table id="chan" align="center">
 					<tr>
 						<td>商品名称 :${good.name}</td>
 						<td>商品产地 :${good.address}</td>
@@ -196,12 +196,15 @@
 					</tr>
 				</table>
 			</div>
-			<div title="商品评价" id ="c">
+			<div title="商品评价" id ="c" bgcolor="yellow">
 					<c:if test="${empty comlist }">
 						<ul>暂时没有评论</ul>
+						<label>添加评价</label>
+						<textarea rows="10" cols="20"></textarea>
+						<input type="button" value="提交">
 					</c:if>
 					<c:forEach items="${comlist}" var="com">
-						<table id="com">
+						<table id="com" align="center">
 							<tr>
 								<td>评论用户  </td>
 								<td>${com.buyer.buyername }</td>
@@ -218,10 +221,10 @@
 								★★★☆☆	
 								</c:if>
 								<c:if test="${com.score ==4 }">
-								★★★☆☆
+								★★★★☆	
 								</c:if>
 								<c:if test="${com.score ==5 }">
-								★★★★☆	
+								★★★★★	
 								</c:if>
 								<c:if test="${com.score == 0}">
 								☆☆☆☆☆		
@@ -239,8 +242,10 @@
 					<div id="pp"">
 					</div> 
 				</div>
-			<div title="其他">
-				111
+			<div title="店主信息" bgcolor="yellow" align="center">
+				<p>卖家 :${good.boss.name}</p>
+				<p>信誉等级  ★★★★★	</p>
+				
 			</div>
 		</div>
 	</div>

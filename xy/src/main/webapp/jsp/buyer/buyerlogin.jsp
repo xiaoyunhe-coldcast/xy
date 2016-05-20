@@ -71,7 +71,7 @@
 <div id="Container">
     <div id="Header">
         <div id="logo">
-        	<h1 align="center" style="color:white;">欢迎登录</h1>
+        	<h1 align="center" style="color:black;">欢迎登录</h1>
         </div>
     </div>
     <div id="Content">
@@ -88,10 +88,10 @@
 			        <li>4</li>
 			    </ul>
 		   <div id="banner_list">
-		        <a href="#" target="_blank"><img src="/xy/img/other/p1.jpg"  alt="图片标题1" /></a>
-		        <a href="#" target="_blank"><img src="/xy/img/other/p5.jpg"  alt="橡树小屋的4blog" /></a>
-		        <a href="#" target="_blank"><img src="/xy/img/other/p3.jpg" alt="图片标题3" /></a>
-		        <a href="#" target="_blank"><img src="/xy/img/other/p4.jpg"  alt="橡树小屋的6blog" /></a>
+		        <a href="#" target="_blank"><img src="/xy/img/logo/yangtze1.jpg"  alt="长大校园风采" width="330px;" height="330px"/></a>
+		        <a href="#" target="_blank"><img src="/xy/img/logo/yangtze2.jpg"  alt="别样风景" width="330px;" height="330px"/></a>
+		        <a href="#" target="_blank"><img src="/xy/img/logo/yangtze3.jpg" alt="爱我长大" width="330px;" height="330px"/></a>
+		        <a href="#" target="_blank"><img src="/xy/img/logo/yangtze4.jpg"  alt="长大标志" width="330px;" height="330px"/></a>
 			</div>
 	    </div>
         </div>

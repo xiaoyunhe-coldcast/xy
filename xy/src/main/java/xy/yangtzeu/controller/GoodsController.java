@@ -75,7 +75,7 @@ public class GoodsController {
 	public Object Queryall(int page,int rows,String order){
 		String data = null;
 		try {
-			List<Goods> goodslist = GR.getAll(page, rows,order);
+			List<Goods> goodslist = GR.getAll(page, rows, order);
 			data = cj.list2Json(goodslist);
 			data = "{\"total\":"+GR.count()+" , \"rows\":"+data+"}";
 			System.out.println(data);

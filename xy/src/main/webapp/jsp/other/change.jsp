@@ -62,13 +62,14 @@
     <span class="next">下一张</span>
     <div class="img-list">
         <ul>
-            <li><img style="width:920px;height:400px;" src="/xy/img/change/01.jpg"></li>
-            <li><img style="width:920px;height:400px;" src="/xy/img/change/02.jpg"></li>
-            <li><img style="width:920px;height:400px;" src="/xy/img/change/03.jpg"></li>
-            <li><img style="width:920px;height:400px;" src="/xy/img/change/04.jpg"></li>
-            <li><img style="width:920px;height:400px;" src="/xy/img/change/03.jpg"></li>
-            <li><img style="width:920px;height:400px;;" src="/xy/img/change/04.jpg"></li>
-            <li><img style="width:920px;height:400px;" src="/xy/img/change/02.jpg"></li>
+            <li><img style="width:920px;height:400px;" src="/xy/img/logo/logo1.jpg"></li>
+            <li><img style="width:920px;height:400px;" src="/xy/img/logo/logo2.jpg"></li>
+            <li><img style="width:920px;height:400px;" src="/xy/img/logo/logo3.jpg"></li>
+            <li><img style="width:920px;height:400px;" src="/xy/img/logo/logo4.jpg"></li>
+            <li><img style="width:920px;height:400px;" src="/xy/img/logo/logo1.jpg"></li>
+            <li><img style="width:920px;height:400px;;" src="/xy/img/logo/logo2.jpg"></li>
+            <li><img style="width:920px;height:400px;" src="/xy/img/logo/logo3.jpg"></li>
+             <li><img style="width:920px;height:400px;" src="/xy/img/logo/logo4.jpg"></li>
         </ul>
     </div>
 </div>

@@ -36,7 +36,7 @@
         padding: 10px 5px;  
         display: block;  
         float: left;  
-        color: green;  
+        color: yellow;  
          font-size: 15pt;
     }  
     .subnav {  
@@ -100,7 +100,7 @@
 </script> 
 <body>
 	<div style="width: 100%" >
-		<marquee scrollAmount=2 width=100% behavior=alternate bgcolor="pink" >
+		<marquee scrollAmount=2 width=100% behavior=alternate bgcolor="yellow" >
 		<p style="font-size: 12pt; color: black;">欢迎来到校园易购商城！ 欢迎来到校园易购商城！ 欢迎来到校园易购商城！</p>
 		</marquee>
 	</div>
@@ -120,7 +120,7 @@
 		        <a href="/xy/jsp/other/index.jsp">主页</a>  
 		    </li>  
 		    <li style="width: 120px">  
-		        <a href="/xy/goods/all?pageindex=1&pagesize=10&search=">全部商品</a>  
+		        <a href="/xy/goods/all?pageindex=1&pagesize=10&search=">校园购物</a>  
 		        <ul class="subnav">  
 		            <li><a href="#">学习资料</a></li>  
 		            <li><a href="#">电子产品</a></li>  
@@ -128,7 +128,7 @@
 		        </ul>  
 		    </li>  
 		    <li style="width: 120px">  
-		        <a href="#">全部店家</a>  
+		        <a href="#">全部店主</a>  
 		        <ul class="subnav">  
 		            <li><a href="#">聚划算</a></li>  
 		            <li><a href="#">名誉卖家</a></li>  
@@ -136,7 +136,7 @@
 		        </ul>  
 		    </li>  
 		    <li style="width: 120px">  
-		        <a href="#">菜单3</a>  
+		        <a href="/xy/buyer/query/${buyer.buyerid }">我的校园网</a>  
 		        <ul class="subnav">  
 		            <li><a href="#">子菜单1</a></li>  
 		            <li><a href="#">子菜单2</a></li>  

@@ -33,7 +33,7 @@
 		
 		//详情函数
 		function detail(value){
-			return '<a href="/xy/orders/query/'+value+'">订单详细</a>';
+			return '<a href="/xy/orders/query/'+value+'" target="_top">订单详细</a>';
 			}
 		//数据表格
 		

@@ -22,14 +22,14 @@
 </script>
 </head>
 <body>
-	<div align="center" style="background-color: orange;">
-		<p><a href="#">关于本网站</a>&nbsp;&nbsp;
+	<div align="center" style="background-color: lime;">
+			<p><a href="#">关于本网站</a>&nbsp;&nbsp;
 			<a href="#">联系我们 027-0000-0000</a>&nbsp;&nbsp;
-			<a href="#">意见反馈 </a></p>
+			<a href="#">意见反馈 </a> &nbsp;<a href="#">招聘信息</a></p>
 		<p>运营许可证<a href="#">鄂A2-2016-04-11-22</a>&nbsp;&nbsp;
 		</p>
 		<p>
-			<a id="admin">管理员登录</a>
+			<a id="admin" class="easyui-linkbutton">管理员登录</a>
 		</p>
 	</div>
 </body>

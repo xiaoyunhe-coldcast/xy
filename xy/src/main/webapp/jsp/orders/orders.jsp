@@ -22,15 +22,19 @@ height: 300px;
 margin-top: 50px;
 }
 </style>
-<title>Insert title here</title>
+<title>订单展示</title>
 </head>
+<script type="text/javascript">
 
-<body>
+	//删除链接
+
+</script>
+<body bgcolor="yellow">
 	<div id="top">
 		<jsp:include page="/jsp/other/top.jsp"/>
 	</div>
-	<div id="content" align="center">
-		<table border="1">
+	<div id="content" align="center" >
+		<table border="0">
 			<tr height="50px" align="center">
 				<td>订单号</td>
 				<td>商品名称</td>
@@ -43,7 +47,7 @@ margin-top: 50px;
 			<tr height="160px">
 				<td id="" align="center">${orders.orderid }</td>
 				<td align="center">${orders.goods.name}</td>
-				<td align="center"><img src="${orders.goods.picture}" alt="1" width="150px" height="100px;"></td>
+				<td align="center"><img src="${orders.goods.picture}" alt="1" width="230px" height="130px;"></td>
 				<td align="center">${orders.num }</td>
 				<td align="center">${orders.total }</td>
 				<td align="center">${orders.date }</td>
